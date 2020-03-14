@@ -89,5 +89,13 @@
                 android:text="@string/date" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/buttonMatch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="launchSecondActivity"
+            android:text="Button" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
