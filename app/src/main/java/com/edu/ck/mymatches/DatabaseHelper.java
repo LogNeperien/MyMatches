@@ -59,15 +59,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null , DATABASE_VERSION);
+        SQLiteDatabase db = this.getWritableDatabase();
+
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL(EQUIPE_TABLE_CREATE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EQUIPE_NAME);
+        onCreate(db);
     }
 }

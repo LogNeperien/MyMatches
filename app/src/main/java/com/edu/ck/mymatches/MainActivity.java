@@ -15,6 +15,9 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+    DatabaseHelper myDataBase;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        myDataBase = new DatabaseHelper(this);
     }
 
     public void launchSecondActivity(View view) {
