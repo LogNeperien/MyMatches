@@ -1,5 +1,6 @@
 package com.edu.ck.mymatches;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -35,6 +36,27 @@ public class MainActivity extends AppCompatActivity {
         });
 
         myDataBase = new DatabaseHelper(this);
+
+        ContentValues values = new ContentValues();
+        values.put("nom", "Stade Français");
+        values.put("entraineur", "Sempéré");
+        values.put("joueur1", "ANGAELANGI");
+        values.put("joueur2", "Alo-Emile");
+        values.put("joueur3", "coucou");
+        values.put("joueur4", "salut");
+        values.put("joueur5", "hello");
+        values.put("joueur6", "oupsi");
+        values.put("joueur7", "dak");
+        values.put("joueur8", "dakokdak");
+        values.put("joueur9", "joeuur");
+        values.put("joueur10", "joueuseu");
+        values.put("joueur11", "resallut");
+        values.put("joueur12", "bonjour");
+        values.put("joueur13", "bonsoir");
+        values.put("joueur14", "clong");
+        values.put("joueur15", "coucou1coucou2");
+
+        myDataBase.insertData("equipe", values);
     }
 
     public void launchSecondActivity(View view) {

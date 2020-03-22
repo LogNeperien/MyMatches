@@ -1,5 +1,6 @@
 package com.edu.ck.mymatches;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -19,9 +20,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //nom database, table et attributs
     public static final String DATABASE_NAME = "Information_Match.db";
 
-    public static final String TABLE_EQUIPE_NAME = "equipe_table";
+    public static final String TABLE_EQUIPE_NAME = "equipe";
 
     public static final String COLUMN_EQUIPEE_ID = "id";
+    public static final String COLUMN_EQUIPE_NOM= "nom";
+    public static final String COLUMN_EQUIPE_ENTRAINEUR= "entraineur";
     public static final String COLUMN_EQUIPE_JOUEUR1= "joueur1";
     public static final String COLUMN_EQUIPE_JOUEUR2= "joueur2";
     public static final String COLUMN_EQUIPE_JOUEUR3= "joueur3";
@@ -38,7 +41,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_EQUIPE_JOUEUR14= "joueur14";
     public static final String COLUMN_EQUIPE_JOUEUR15= "joueur15";
 
-    public static final String TABLE_MATCH_NAME = "match_table";
+    public static final String TABLE_MATCH_NAME = "match";
 
     public static final String COLUMN_MATCH_ID = "id";
     public static final String COLUMN_MATCH_NOM = "nom";
@@ -55,6 +58,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String EQUIPE_TABLE_CREATE =
             "CREATE TABLE " + TABLE_EQUIPE_NAME + " (" +
                     COLUMN_EQUIPEE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_EQUIPE_NOM + " TEXT, " +
+                    COLUMN_EQUIPE_ENTRAINEUR + " TEXT, " +
                     COLUMN_EQUIPE_JOUEUR1 + " TEXT, " +
                     COLUMN_EQUIPE_JOUEUR2 + " TEXT, " +
                     COLUMN_EQUIPE_JOUEUR3 + " TEXT, " +
@@ -103,5 +108,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onUpgrade(db, oldVersion, newVersion);
+    }
+
+    public boolean insertData(String name_table, ContentValues values)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        long resultInsert = db.insert(name_table, values);
+        if(resultInsert == -1)
+            return false;
+        else
+            return true;
     }
 }
