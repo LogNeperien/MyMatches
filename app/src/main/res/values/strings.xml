@@ -11,5 +11,10 @@
     <string name="photo">Photos</string>
     <string name="buttonLocalisation">Localisation</string>
     <string name="buttonStatistique">Statistiques</string>
+    <string name="matchs">+ de matchs</string>
+    <string name="infos">Infos</string>
+    <string name="liste_des_matchs">Liste des matchs</string>
+    <string name="back">Back</string>
+    <string name="title_activity_info">InfoActivity</string>
 
 </resources>
