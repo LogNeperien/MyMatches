@@ -2,6 +2,7 @@ package com.edu.ck.mymatches;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -13,10 +14,13 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     DatabaseHelper myDataBase;
+    TextView nameMatch1 = (TextView) findViewById(R.id.nameMatch1);
 
 
     @Override
@@ -57,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
         values.put("joueur15", "coucou1coucou2");
 
         myDataBase.insertData("equipe", values);
+
+        Cursor result = myDataBase.getDataEquipe("equipe");
+        result.moveToFirst();
+        while(!result.isAfterLast())
+        {
+            nameMatch1.setText(result.getString(0));
+            result.moveToNext();
+        }
+        result.close();
     }
 
     public void launchSecondActivity(View view) {

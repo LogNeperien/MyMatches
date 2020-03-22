@@ -2,6 +2,7 @@ package com.edu.ck.mymatches;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -76,18 +77,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_EQUIPE_JOUEUR15 + " TEXT, " +
                     COLUMN_EQUIPE_JOUEUR10 + " TEXT);";
 
-    public static final String MATCH_TABLE_CREATE =
-            "CREATE TABLE " + TABLE_MATCH_NAME + " (" +
-                    COLUMN_MATCH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    COLUMN_MATCH_NOM + " TEXT, " +
-                    COLUMN_MATCH_ID_EQUIPE1 + " INTEGER FOREIGN KEY (" + COLUMN_MATCH_ID_EQUIPE1 + ") REFERENCES " + TABLE_EQUIPE_NAME + "(" + COLUMN_EQUIPEE_ID + ")" + ", " +
-                    COLUMN_MATCH_ID_EQUIPE1 + "INTEGER FOREIGN KEY (" + COLUMN_MATCH_ID_EQUIPE2 + ") REFERENCES " + TABLE_EQUIPE_NAME + "(" + COLUMN_EQUIPEE_ID + ")" + ", " +
-                    //COLUMN_MATCH_ID_PHOTO + " INTEGER FOREIGN KEY (" + COLUMN_MATCH_ID_PHOTO + ") REFERENCES " + TABLE_PHOTO_NAME + "(" + COLUMN_PHOTO_ID + ")" + ", " +
-                    COLUMN_MATCH_LATITUDE + "INTEGER," +
-                    COLUMN_MATCH_LONGITUDE + "INTEGER;";
+    public static final String MATCH_TABLE_CREATE;
 
     private static final String SQL_DELETE_EQUIPE = "DROP TABLE IF EXISTS " + TABLE_EQUIPE_NAME;
-    private static final String SQL_DELETE_MATCH = "DROP TABLE IF EXISTS " + TABLE_MATCH_NAME;
+    private static final String SQL_DELETE_MATCH;
+
+    static {
+        MATCH_TABLE_CREATE = "CREATE TABLE " + TABLE_MATCH_NAME + " (" +
+                COLUMN_MATCH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_MATCH_NOM + " TEXT, " +
+                COLUMN_MATCH_ID_EQUIPE1 + " INTEGER FOREIGN KEY (" + COLUMN_MATCH_ID_EQUIPE1 + ") REFERENCES " + TABLE_EQUIPE_NAME + "(" + COLUMN_EQUIPEE_ID + ")" + ", " +
+                COLUMN_MATCH_ID_EQUIPE1 + "INTEGER FOREIGN KEY (" + COLUMN_MATCH_ID_EQUIPE2 + ") REFERENCES " + TABLE_EQUIPE_NAME + "(" + COLUMN_EQUIPEE_ID + ")" + ", " +
+                COLUMN_MATCH_LATITUDE + "INTEGER," +
+                COLUMN_MATCH_LONGITUDE + "INTEGER;";
+        SQL_DELETE_MATCH = "DROP TABLE IF EXISTS " + TABLE_MATCH_NAME;
+    }
 
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null , DATABASE_VERSION);
@@ -113,10 +117,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean insertData(String name_table, ContentValues values)
     {
         SQLiteDatabase db = this.getWritableDatabase();
-        long resultInsert = db.insert(name_table, values);
+        long resultInsert;
+        resultInsert = db.insert(name_table,null, values);
         if(resultInsert == -1)
             return false;
         else
             return true;
+    }
+
+    public Cursor getDataEquipe(String nomEquipe)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] columns = { COLUMN_EQUIPE_NOM, COLUMN_EQUIPE_ENTRAINEUR};
+        String[] params = new String[]{nomEquipe};
+        Cursor res = db.query(TABLE_EQUIPE_NAME, columns, "nom=?", params, null, null, null, "1");
+        return res;
     }
 }
