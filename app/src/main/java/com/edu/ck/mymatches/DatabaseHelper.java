@@ -18,7 +18,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //nom database, table et attributs
     public static final String DATABASE_NAME = "Information_Match.db";
+
     public static final String TABLE_EQUIPE_NAME = "equipe_table";
+
     public static final String COLUMN_EQUIPEE_ID = "id";
     public static final String COLUMN_EQUIPE_JOUEUR1= "joueur1";
     public static final String COLUMN_EQUIPE_JOUEUR2= "joueur2";
@@ -35,6 +37,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMN_EQUIPE_JOUEUR13= "joueur13";
     public static final String COLUMN_EQUIPE_JOUEUR14= "joueur14";
     public static final String COLUMN_EQUIPE_JOUEUR15= "joueur15";
+
+    public static final String TABLE_MATCH_NAME = "match_table";
+
+    public static final String COLUMN_MATCH_ID = "id";
+    public static final String COLUMN_MATCH_NOM = "nom";
+    public static final String COLUMN_MATCH_ID_EQUIPE1 = "id_equipe1";
+    public static final String COLUMN_MATCH_ID_EQUIPE2 = "id_equipe2";
+    public static final String COLUMN_MATCH_ID_PHOTO = "id_photo";
+    public static final String COLUMN_MATCH_LONGITUDE = "longitude";
+    public static final String COLUMN_MATCH_LATITUDE = "latitude";
+
+
 
 
     //requete SQL
@@ -57,20 +71,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_EQUIPE_JOUEUR15 + " TEXT, " +
                     COLUMN_EQUIPE_JOUEUR10 + " TEXT);";
 
+    public static final String MATCH_TABLE_CREATE =
+            "CREATE TABLE " + TABLE_MATCH_NAME + " (" +
+                    COLUMN_MATCH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    COLUMN_MATCH_NOM + " TEXT, " +
+                    COLUMN_MATCH_ID_EQUIPE1 + " INTEGER FOREIGN KEY (" + COLUMN_MATCH_ID_EQUIPE1 + ") REFERENCES " + TABLE_EQUIPE_NAME + "(" + COLUMN_EQUIPEE_ID + ")" + ", " +
+                    COLUMN_MATCH_ID_EQUIPE1 + "INTEGER FOREIGN KEY (" + COLUMN_MATCH_ID_EQUIPE2 + ") REFERENCES " + TABLE_EQUIPE_NAME + "(" + COLUMN_EQUIPEE_ID + ")" + ", " +
+                    //COLUMN_MATCH_ID_PHOTO + " INTEGER FOREIGN KEY (" + COLUMN_MATCH_ID_PHOTO + ") REFERENCES " + TABLE_PHOTO_NAME + "(" + COLUMN_PHOTO_ID + ")" + ", " +
+                    COLUMN_MATCH_LATITUDE + "INTEGER," +
+                    COLUMN_MATCH_LONGITUDE + "INTEGER;";
+
+    private static final String SQL_DELETE_EQUIPE = "DROP TABLE IF EXISTS " + TABLE_EQUIPE_NAME;
+    private static final String SQL_DELETE_MATCH = "DROP TABLE IF EXISTS " + TABLE_MATCH_NAME;
+
     public DatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null , DATABASE_VERSION);
-        SQLiteDatabase db = this.getWritableDatabase();
-
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(EQUIPE_TABLE_CREATE);
+        db.execSQL(MATCH_TABLE_CREATE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_EQUIPE_NAME);
+        db.execSQL(SQL_DELETE_EQUIPE);
+        db.execSQL(SQL_DELETE_MATCH);
         onCreate(db);
+    }
+
+    public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        onUpgrade(db, oldVersion, newVersion);
     }
 }
