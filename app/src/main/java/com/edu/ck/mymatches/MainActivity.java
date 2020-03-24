@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     public void launchSecondActivity(View view) {
             Intent intent = new Intent(this, Match.class);
             startActivity(intent);
+
+            //Envoyer l'id du match dans un extra en fonction du bouton cliqué
     }
 
     @Override
@@ -44,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_home) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
             return true;
         }
 
