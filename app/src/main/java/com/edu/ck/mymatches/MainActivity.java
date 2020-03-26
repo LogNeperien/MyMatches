@@ -1,8 +1,10 @@
 package com.edu.ck.mymatches;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,11 +18,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
-    DatabaseHelper myDataBase;
-    TextView nameMatch1 = (TextView) findViewById(R.id.nameMatch1);
+    private DatabaseHelper myDataBase;
+    private TextView nameMatch1;
 
 
     @Override
@@ -39,37 +44,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        myDataBase = new DatabaseHelper(this);
+        nameMatch1 = (TextView) findViewById(R.id.nameMatch1);
+        //myDataBase = new DatabaseHelper(this);
+        myDataBase = new DatabaseHelper(getApplicationContext());
 
-        ContentValues values = new ContentValues();
-        values.put("nom", "Stade Français");
-        values.put("entraineur", "Sempéré");
-        values.put("joueur1", "ANGAELANGI");
-        values.put("joueur2", "Alo-Emile");
-        values.put("joueur3", "coucou");
-        values.put("joueur4", "salut");
-        values.put("joueur5", "hello");
-        values.put("joueur6", "oupsi");
-        values.put("joueur7", "dak");
-        values.put("joueur8", "dakokdak");
-        values.put("joueur9", "joeuur");
-        values.put("joueur10", "joueuseu");
-        values.put("joueur11", "resallut");
-        values.put("joueur12", "bonjour");
-        values.put("joueur13", "bonsoir");
-        values.put("joueur14", "clong");
-        values.put("joueur15", "coucou1coucou2");
+        boolean insertion = insertData("equipe");
+        Context context = getApplicationContext();
+        CharSequence text;
+        int duration = Toast.LENGTH_SHORT;
+        if(insertion)
+        {
+            text = "insertion réussie";
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }else
+        {
+            text = "insertion ratée";
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
 
-        myDataBase.insertData("equipe", values);
-
-        Cursor result = myDataBase.getDataEquipe("equipe");
+        /*Cursor result = myDataBase.getDataEquipe("equipe");
         result.moveToFirst();
         while(!result.isAfterLast())
         {
             nameMatch1.setText(result.getString(0));
             result.moveToNext();
         }
-        result.close();
+        result.close();*/
     }
 
     public void launchSecondActivity(View view) {
@@ -97,5 +99,36 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public boolean insertData(String name_table)
+    {
+        SQLiteDatabase db = myDataBase.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("nom", "Stade Français");
+        values.put("entraineur", "Sempéré");
+        values.put("joueur1", "ANGAELANGI");
+        values.put("joueur2", "Alo-Emile");
+        values.put("joueur3", "coucou");
+        values.put("joueur4", "salut");
+        values.put("joueur5", "hello");
+        values.put("joueur6", "oupsi");
+        values.put("joueur7", "dak");
+        values.put("joueur8", "dakokdak");
+        values.put("joueur9", "joeuur");
+        values.put("joueur10", "joueuseu");
+        values.put("joueur11", "resallut");
+        values.put("joueur12", "bonjour");
+        values.put("joueur13", "bonsoir");
+        values.put("joueur14", "clong");
+        values.put("joueur15", "coucou1coucou2");
+
+        long resultInsert;
+        resultInsert = db.insert(name_table,null, values);
+        if(resultInsert == -1)
+            return false;
+        else
+            return true;
     }
 }
