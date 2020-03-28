@@ -4,9 +4,9 @@
     <string name="action_home">Home</string>
     <string name="nameMatch">Match</string>
     <string name="date">Date</string>
-    <string name="nomEquipe1"> <u> nom de l\'équipe 1 </u></string>
+    <string name="nomEquipe1"> <u>Nom de l\'équipe 1</u></string>
     <string name="pointEquipe1">score equipe1</string>
-    <string name="nomEquipe2"> <u>nom de l\'équipe 2 </u></string>
+    <string name="nomEquipe2"> <u>Nom de l\'équipe 2</u></string>
     <string name="pointEquipe2">score équipe 2</string>
     <string name="buttonInfoEquipe">Info Equipes</string>
     <string name="photo">Photos</string>
@@ -16,8 +16,12 @@
     <string name="infos">Infos</string>
     <string name="liste_des_matchs">Liste des matchs</string>
     <string name="back">Back</string>
-    <string name="title_activity_info">InfoActivity</string>
+    <string name="title_activity_info">Informations</string>
     <string name="ListeEquipe1">listeEquipe1</string>
     <string name="ListeEquipe2">listeEquipe2</string>
+    <string name="title_activity_localisation">Localisation</string>
+    <string name="title_activity_photos">Photos</string>
+    <string name="localisation_title"> <u>Localisation du match</u></string>
+    <string name="photos_title"><u>Photos du match</u></string>
 
 </resources>

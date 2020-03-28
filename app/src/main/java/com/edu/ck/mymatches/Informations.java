@@ -1,5 +1,6 @@
 package com.edu.ck.mymatches;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -14,10 +15,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-public class InfoActivity extends AppCompatActivity {
+public class Informations extends AppCompatActivity {
 
-    public static final String EQUIPE1 = "EQUIPE1";
-    public static final String EQUIPE2 = "EQUIPE2";
+    //public static final String EQUIPE1 = "EQUIPE1";
+    //public static final String EQUIPE2 = "EQUIPE2";
     private TextView e1, e2;
 
     @Override
@@ -36,6 +37,9 @@ public class InfoActivity extends AppCompatActivity {
         String equipe2 = intent.getStringExtra(Match.EQUIPE2);
         e1.setText(equipe1);
         e2.setText(equipe2);
+
+        //Affichage de la liste des joueurs
+        //Avec bdd
 
     }
 

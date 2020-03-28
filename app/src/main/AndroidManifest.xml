@@ -10,9 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".InfoActivity"
-            android:label="@string/title_activity_info"
+            android:name=".Photos"
+            android:label="@string/title_activity_photos"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Localisation"
+            android:label="@string/title_activity_localisation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Informations"
+            android:label="@string/title_activity_info"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Match"
             android:label="Match"

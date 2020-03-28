@@ -27,6 +27,7 @@ public class Match extends AppCompatActivity {
         Intent intent = getIntent();
 
         //Récupérer l'id du match avec getExtra pour afficher les equipes et scores
+        //avec bdd
 
     }
 
@@ -35,7 +36,7 @@ public class Match extends AppCompatActivity {
         switch (view.getId()){
 
             case R.id.buttonInfoEquipe:
-                Intent i = new Intent(this, InfoActivity.class);
+                Intent i = new Intent(this, Informations.class);
                 String equipe1 = e1.getText().toString();
                 String equipe2 = e2.getText().toString();
                 i.putExtra(EQUIPE1, equipe1);
@@ -43,19 +44,19 @@ public class Match extends AppCompatActivity {
                 startActivity(i);
                 break;
 
-            /*case R.id.buttonLocalisation:
-                Intent i = new Intent(this, );
+            case R.id.buttonLocalisation:
+                i = new Intent(this, Localisation.class);
+                //Envoyer longitude et latitude du match
                 startActivity(i);
                 break;
-            case R.id.buttonMatch:
-                Intent i = new Intent(this, );
-                startActivity(i);
-                break;
+
             case R.id.buttonPhoto:
-                Intent i = new Intent(this, );
+                i = new Intent(this, Photos.class);
+                //envoyer id du match
                 startActivity(i);
                 break;
-            case R.id.buttonStatistiques:
+
+            /*case R.id.buttonStatistiques:
                 Intent i = new Intent(this, );
                 startActivity(i);
                 break;*/
@@ -63,7 +64,7 @@ public class Match extends AppCompatActivity {
         }
     }
 
-
+    //Menu avec bouton Home
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -73,9 +74,6 @@ public class Match extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
