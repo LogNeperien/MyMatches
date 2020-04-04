@@ -9,27 +9,24 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.View;
+import android.location.*;
 
-public class MainActivity extends AppCompatActivity {
+public class Localisation extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_localisation);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        Intent intent = getIntent();
+
     }
 
-    public void launchSecondActivity(View view) {
-            Intent intent = new Intent(this, Match.class);
-            startActivity(intent);
-
-            //Envoyer l'id du match dans un extra en fonction du bouton cliqué
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,4 +51,5 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

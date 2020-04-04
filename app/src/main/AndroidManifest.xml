@@ -9,13 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Match"
-            android:label = "Match"
+        <activity
+            android:name=".Photos"
+            android:label="@string/title_activity_photos"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Localisation"
+            android:label="@string/title_activity_localisation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Informations"
+            android:label="@string/title_activity_info"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Match"
+            android:label="Match"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.edu.ck.mymatches.MainActivity"
-                />
+                android:value="com.edu.ck.mymatches.MainActivity" />
         </activity>
         <activity
             android:name=".MainActivity"

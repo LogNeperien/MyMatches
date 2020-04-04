@@ -1,5 +1,6 @@
 package com.edu.ck.mymatches;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -9,27 +10,39 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.View;
+import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class Informations extends AppCompatActivity {
+
+    //public static final String EQUIPE1 = "EQUIPE1";
+    //public static final String EQUIPE2 = "EQUIPE2";
+    private TextView e1, e2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_info);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        e1 = findViewById(R.id.nomEquipe1);
+        e2 = findViewById(R.id.nomEquipe2);
+
+        Intent intent = getIntent();
+
+        //Affichage des noms des équipes
+        String equipe1 = intent.getStringExtra(Match.EQUIPE1);
+        String equipe2 = intent.getStringExtra(Match.EQUIPE2);
+        e1.setText(equipe1);
+        e2.setText(equipe2);
+
+        //Affichage de la liste des joueurs
+        //Avec bdd
+
     }
 
-    public void launchSecondActivity(View view) {
-            Intent intent = new Intent(this, Match.class);
-            startActivity(intent);
-
-            //Envoyer l'id du match dans un extra en fonction du bouton cliqué
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -54,4 +67,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
