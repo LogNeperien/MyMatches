@@ -1,7 +1,6 @@
 package com.edu.ck.mymatches;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -10,41 +9,27 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
+import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
-
-
+public class Statistiques extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_statistiques);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Intent intent = getIntent();
+
+        //Récupérer id du match et afficher toutes les infos
+
     }
 
-    public void launchSecondActivity(View view) {
-        switch (view.getId()) {
 
-            case R.id.buttonMatch:
-                Intent i = new Intent(this, Match.class);
-                startActivity(i);
-                break;
-
-            case R.id.buttonAjout:
-                i = new Intent(this, NewMatchActivity.class);
-                startActivity(i);
-                break;
-            default:
-                //Envoyer l'id du match dans un extra en fonction du bouton cliqué
-        }
-    }
-
+    //Menu avec bouton Home
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -54,9 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -68,4 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }

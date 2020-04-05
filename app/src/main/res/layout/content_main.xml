@@ -232,6 +232,15 @@
                 android:onClick="launchSecondActivity"
                 android:textSize="17sp" />
 
+            <Button
+                android:id="@+id/buttonAjout"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:onClick="launchSecondActivity"
+                android:text="@string/button_ajout_match"
+                android:textSize="17sp" />
+
         </LinearLayout>
 
     </LinearLayout>

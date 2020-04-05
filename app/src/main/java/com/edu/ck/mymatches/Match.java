@@ -45,7 +45,7 @@ public class Match extends AppCompatActivity {
                 break;
 
             case R.id.buttonLocalisation:
-                i = new Intent(this, Localisation.class);
+                i = new Intent(this, MapsActivity.class);
                 //Envoyer longitude et latitude du match
                 startActivity(i);
                 break;
@@ -56,10 +56,11 @@ public class Match extends AppCompatActivity {
                 startActivity(i);
                 break;
 
-            /*case R.id.buttonStatistiques:
-                Intent i = new Intent(this, );
+            case R.id.buttonStatistiques:
+                i = new Intent(this, Statistiques.class);
+                //Envoyer id du match
                 startActivity(i);
-                break;*/
+                break;
             default:
         }
     }
