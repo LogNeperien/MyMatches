@@ -20,7 +20,7 @@ import android.view.View;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     //version
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 4;
     //nom database
     private static final String DATABASE_NAME = "MyMatches.db";
 
@@ -100,7 +100,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FeedEntry.COLUMN_EQUIPE1_JOUEUR3, joueur3);
         values.put(FeedEntry.COLUMN_EQUIPE2_JOUEUR1, joueur4);
         values.put(FeedEntry.COLUMN_EQUIPE2_JOUEUR2, joueur5);
-        values.put(FeedEntry.COLUMN_EQUIPE2_JOUEUR3, joueur5);
+        values.put(FeedEntry.COLUMN_EQUIPE2_JOUEUR3, joueur6);
         values.put(FeedEntry.COLUMN_MATCH_PHOTO, photo);
         values.put(FeedEntry.COLUMN_MATCH_LONGITUDE, longitude);
         values.put(FeedEntry.COLUMN_MATCH_LATITUDE, latitude);
