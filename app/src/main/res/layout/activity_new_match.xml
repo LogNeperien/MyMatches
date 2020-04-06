@@ -26,14 +26,14 @@
         android:layout_height="match_parent"
         android:layout_marginTop="60sp"
         android:orientation="horizontal"
-        android:weightSum="2">
+        android:weightSum="4">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:weightSum="10">
+            android:weightSum="12">
 
             <TextView
                 android:id="@+id/nom_equipe"
@@ -41,8 +41,17 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Nom de l'équipe :"
-                android:textSize="20sp" />
+                android:text="Nom de l'équipe 1 :"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/score1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Score :"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/entraineur"
@@ -51,7 +60,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Entraineur :"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/joueur1"
@@ -60,7 +69,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Joueur 1 :"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/joueur2"
@@ -69,7 +78,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Joueur 2 :"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/joueur3"
@@ -78,25 +87,33 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Joueur 3 :"
-                android:textSize="20sp" />
+                android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/joueur4"
+                android:id="@+id/photo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Joueur 4 :"
-                android:textSize="20sp" />
+                android:text="Photo :"
+                android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/joueur5"
+                android:id="@+id/longitude"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Joueur 5 :"
-                android:textSize="20sp" />
+                android:text="Longitude :"
+                android:textSize="14sp" />
+            <TextView
+                android:id="@+id/latitude"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Latitude :"
+                android:textSize="14sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -104,7 +121,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
-            android:weightSum="10">
+            android:weightSum="12">
 
             <EditText
                 android:id="@+id/editText_equipe"
@@ -113,6 +130,14 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editText_score1"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
 
             <EditText
                 android:id="@+id/editText_entraineur"
@@ -147,7 +172,7 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText_joueur4"
+                android:id="@+id/editText_photo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -155,7 +180,138 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText_joueur5"
+                android:id="@+id/editText_longitude"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editText_latitude"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="12">
+
+            <TextView
+                android:id="@+id/nom_equipe2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Nom de l'équipe 2  :"
+                android:textSize="14sp" />
+
+
+            <TextView
+                android:id="@+id/score2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Score :"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/entraineur2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Entraineur :"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/joueur1_e2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Joueur 1 :"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/joueur2_e2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Joueur 2 :"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/joueur3_e2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Joueur 3 :"
+                android:textSize="14sp" />
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:weightSum="12">
+
+
+            <EditText
+                android:id="@+id/editText_equipe2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editText_score2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/editText_entraineur2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editText_joueur1_e2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editText_joueur2_e2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/editText_joueur3_e2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -177,7 +333,9 @@
                 android:layout_weight="1"
                 android:onClick="affichageDB"
                 android:text="Afficher DB" />
+
         </LinearLayout>
+
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

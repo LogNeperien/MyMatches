@@ -2,6 +2,7 @@ package com.edu.ck.mymatches;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -17,8 +18,8 @@ import android.widget.Toast;
 
 public class NewMatchActivity extends AppCompatActivity {
     DatabaseHelper db;
-    EditText equipeInput, entraineurInput, joueur1Input, joueur2Input, joueur3Input, joueur4Input, joueur5Input;
-    Button ajout;
+    EditText equipeInput, equipeInput2, entraineurInput, joueur1Input, joueur2Input, joueur3Input, joueur4Input, joueur5Input, joueur6Input;
+    EditText score1, score2, entraineurInput2, photoInput, longInput, latInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,20 +32,31 @@ public class NewMatchActivity extends AppCompatActivity {
         db = new DatabaseHelper(this);
 
         equipeInput = findViewById(R.id.editText_equipe);
+        equipeInput2 = findViewById(R.id.editText_equipe2);
         entraineurInput = findViewById(R.id.editText_entraineur);
+        entraineurInput2 = findViewById(R.id.editText_entraineur2);
+        score1 = findViewById(R.id.editText_score1);
+        score2 = findViewById(R.id.editText_score2);
         joueur1Input = findViewById(R.id.editText_joueur1);
         joueur2Input = findViewById(R.id.editText_joueur2);
         joueur3Input = findViewById(R.id.editText_joueur3);
-        joueur4Input = findViewById(R.id.editText_joueur4);
-        joueur5Input = findViewById(R.id.editText_joueur5);
+        joueur4Input = findViewById(R.id.editText_joueur1_e2);
+        joueur5Input = findViewById(R.id.editText_joueur2_e2);
+        joueur6Input = findViewById(R.id.editText_joueur3_e2);
+        photoInput = findViewById(R.id.editText_photo);
+        longInput = findViewById(R.id.editText_longitude);
+        latInput = findViewById(R.id.editText_latitude);
 
     }
 
                     public void addData(View view)
                     {
-                        boolean isInserted = db.insertDataEquipe(equipeInput.getText().toString(), entraineurInput.getText().toString(),
-                                joueur1Input.getText().toString(), joueur2Input.getText().toString(), joueur3Input.getText().toString(),
-                                joueur4Input.getText().toString(), joueur5Input.getText().toString());
+                        boolean isInserted = db.insertDataMatch(equipeInput.getText().toString(), equipeInput2.getText().toString(),
+                                score1.getText().toString(), score2.getText().toString(), entraineurInput.getText().toString(),
+                                entraineurInput2.getText().toString(), joueur1Input.getText().toString(), joueur2Input.getText().toString(),
+                                joueur3Input.getText().toString(), joueur4Input.getText().toString(), joueur5Input.getText().toString(),
+                                joueur6Input.getText().toString(), photoInput.getText().toString(), longInput.getText().toString(),
+                                latInput.getText().toString());
                         if(isInserted == true)
                         {
                             Toast.makeText(NewMatchActivity.this, "Data Inserted !!",Toast.LENGTH_LONG).show();

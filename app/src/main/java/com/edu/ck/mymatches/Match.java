@@ -4,17 +4,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Match extends AppCompatActivity {
 
     public static final String EQUIPE1 = "EQUIPE1";
     public static final String EQUIPE2 = "EQUIPE2";
-    private TextView e1, e2;
+    private TextView e1, e2, score1, score2;
+    DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +26,30 @@ public class Match extends AppCompatActivity {
         setContentView(R.layout.activity_match);
         e1 = (TextView) findViewById(R.id.nomEquipe1);
         e2 = (TextView) findViewById(R.id.nomEquipe2);
+        score1 = findViewById(R.id.pointEquipe1);
+        score2 = findViewById(R.id.pointEquipe2);
 
         Intent intent = getIntent();
 
         //Récupérer l'id du match avec getExtra pour afficher les equipes et scores
         //avec bdd
+        //esaai avec id 1
+        db = new DatabaseHelper(this);;
+
+        Cursor data = db.getScores(1);
+        if(data.getCount() == 0)
+        {
+            Toast.makeText(Match.this,"Error, No Data Found !!",Toast.LENGTH_LONG).show();
+            return;
+        }
+        //StringBuffer buffer = new StringBuffer();
+        while(data.moveToNext())
+        {
+            e1.setText(data.getString(0));
+            e2.setText(data.getString(1));
+            score1.setText(data.getString(2));
+            score2.setText(data.getString(3));
+        }
 
     }
 

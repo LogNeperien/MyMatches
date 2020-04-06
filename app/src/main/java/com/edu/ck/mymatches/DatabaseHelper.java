@@ -20,7 +20,7 @@ import android.view.View;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     //version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
     //nom database
     private static final String DATABASE_NAME = "MyMatches.db";
 
@@ -28,7 +28,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_EQUIPE_NAME = "equipe";
 
     //Supprimer SQL
-    private static final String SQL_DELETE_EQUIPE = "DROP TABLE IF EXISTS " + TABLE_EQUIPE_NAME;
+    private static final String SQL_DELETE_EQUIPE = "DROP TABLE equipe ";
     //private static final String SQL_DELETE_MATCH = null;
 
     public DatabaseHelper(Context context) {
@@ -38,43 +38,72 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Colonnes de la table
     public static class FeedEntry implements BaseColumns
     {
-        public static final String COLUMN_EQUIPE_ID = "id";
-        public static final String COLUMN_EQUIPE_NOM= "nom";
-        public static final String COLUMN_EQUIPE_ENTRAINEUR= "entraineur";
-        public static final String COLUMN_EQUIPE_JOUEUR1= "joueur1";
-        public static final String COLUMN_EQUIPE_JOUEUR2= "joueur2";
-        public static final String COLUMN_EQUIPE_JOUEUR3= "joueur3";
-        public static final String COLUMN_EQUIPE_JOUEUR4= "joueur4";
-        public static final String COLUMN_EQUIPE_JOUEUR5= "joueur5";
+        public static final String COLUMN_MATCH_ID = "id";
+        public static final String COLUMN_MATCH_EQUIPE1= "equipe1";
+        public static final String COLUMN_MATCH_EQUIPE2= "equipe2";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE1 = "score_equipe1";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE2 = "score_equipe2";
+        public static final String COLUMN_MATCH_ENTRAINEUR1= "entraineur1";
+        public static final String COLUMN_MATCH_ENTRAINEUR2= "entraineur2";
+
+        public static final String COLUMN_EQUIPE1_JOUEUR1= "joueur1_e1";
+        public static final String COLUMN_EQUIPE1_JOUEUR2= "joueur2_e1";
+        public static final String COLUMN_EQUIPE1_JOUEUR3= "joueur3_e1";
+        public static final String COLUMN_EQUIPE2_JOUEUR1= "joueur1_e2";
+        public static final String COLUMN_EQUIPE2_JOUEUR2= "joueur2_e2";
+        public static final String COLUMN_EQUIPE2_JOUEUR3= "joueur3_e2";
+
+        public static final String COLUMN_MATCH_PHOTO = "photo";
+        public static final String COLUMN_MATCH_LONGITUDE = "longitude";
+        public static final String COLUMN_MATCH_LATITUDE = "latitude";
+
     }
 
     //Creation de la table (requete SQL)
     public static final String EQUIPE_TABLE_CREATE =
             "CREATE TABLE " + TABLE_EQUIPE_NAME + "(" +
-                    FeedEntry.COLUMN_EQUIPE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    FeedEntry.COLUMN_EQUIPE_NOM + " Nom, " +
-                    FeedEntry.COLUMN_EQUIPE_ENTRAINEUR + " Entraineur, " +
-                    FeedEntry.COLUMN_EQUIPE_JOUEUR1 + " Joueur1, " +
-                    FeedEntry.COLUMN_EQUIPE_JOUEUR2 + " TEXT2, " +
-                    FeedEntry.COLUMN_EQUIPE_JOUEUR3 + " TEXT3, " +
-                    FeedEntry.COLUMN_EQUIPE_JOUEUR4 + " TEXT5, " +
-                    FeedEntry.COLUMN_EQUIPE_JOUEUR5 + " TEXT6)";
+                    FeedEntry.COLUMN_MATCH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    FeedEntry.COLUMN_MATCH_EQUIPE1 + " TEXT, " +
+                    FeedEntry.COLUMN_MATCH_EQUIPE2 + " TEXT, " +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1 + " TEXT, " +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2 + " TEXT, " +
+                    FeedEntry.COLUMN_MATCH_ENTRAINEUR1 + " Entraineur, " +
+                    FeedEntry.COLUMN_MATCH_ENTRAINEUR2 + " Entraineur, " +
+                    FeedEntry.COLUMN_EQUIPE1_JOUEUR1 + " Joueur1, " +
+                    FeedEntry.COLUMN_EQUIPE1_JOUEUR2 + " TEXT2, " +
+                    FeedEntry.COLUMN_EQUIPE1_JOUEUR3 + " TEXT3, " +
+                    FeedEntry.COLUMN_EQUIPE2_JOUEUR1 + " Joueur1, " +
+                    FeedEntry.COLUMN_EQUIPE2_JOUEUR2 + " TEXT2, " +
+                    FeedEntry.COLUMN_EQUIPE2_JOUEUR3 + " TEXT3, " +
+                    FeedEntry.COLUMN_MATCH_PHOTO + " TEXT3, " +
+                    FeedEntry.COLUMN_MATCH_LONGITUDE + " TEXT5, " +
+                    FeedEntry.COLUMN_MATCH_LATITUDE + " TEXT6)";
 
 
     //Insertion dans la table equipe
-    public boolean insertDataEquipe(String nom_equipe, String entraineur, String joueur1, String joueur2,
-                                 String joueur3, String joueur4, String joueur5)
+    public boolean insertDataMatch(String equipe1, String equipe2, String score1, String score2,
+                                    String entraineur1, String entraineur2, String joueur1, String joueur2,
+                                    String joueur3,String joueur4, String joueur5, String joueur6, String photo,
+                                    String longitude, String latitude)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(FeedEntry.COLUMN_EQUIPE_NOM, nom_equipe);
-        values.put(FeedEntry.COLUMN_EQUIPE_ENTRAINEUR, entraineur);
-        values.put(FeedEntry.COLUMN_EQUIPE_JOUEUR1, joueur1);
-        values.put(FeedEntry.COLUMN_EQUIPE_JOUEUR2, joueur2);
-        values.put(FeedEntry.COLUMN_EQUIPE_JOUEUR3, joueur3);
-        values.put(FeedEntry.COLUMN_EQUIPE_JOUEUR4, joueur4);
-        values.put(FeedEntry.COLUMN_EQUIPE_JOUEUR5, joueur5);
+        values.put(FeedEntry.COLUMN_MATCH_EQUIPE1, equipe1);
+        values.put(FeedEntry.COLUMN_MATCH_EQUIPE2, equipe2);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1, score1);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2, score2);
+        values.put(FeedEntry.COLUMN_MATCH_ENTRAINEUR1, entraineur1);
+        values.put(FeedEntry.COLUMN_MATCH_ENTRAINEUR2, entraineur2);
+        values.put(FeedEntry.COLUMN_EQUIPE1_JOUEUR1, joueur1);
+        values.put(FeedEntry.COLUMN_EQUIPE1_JOUEUR2, joueur2);
+        values.put(FeedEntry.COLUMN_EQUIPE1_JOUEUR3, joueur3);
+        values.put(FeedEntry.COLUMN_EQUIPE2_JOUEUR1, joueur4);
+        values.put(FeedEntry.COLUMN_EQUIPE2_JOUEUR2, joueur5);
+        values.put(FeedEntry.COLUMN_EQUIPE2_JOUEUR3, joueur5);
+        values.put(FeedEntry.COLUMN_MATCH_PHOTO, photo);
+        values.put(FeedEntry.COLUMN_MATCH_LONGITUDE, longitude);
+        values.put(FeedEntry.COLUMN_MATCH_LATITUDE, latitude);
 
         long result = db.insert(TABLE_EQUIPE_NAME, null, values);
 
@@ -83,17 +112,45 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    //Afficher toutes les données
+    //Récupération de toutes les données
     public Cursor getAllData()
     {
-        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor result = db.rawQuery("SELECT * FROM " + TABLE_EQUIPE_NAME, null);
+        return result;
+    }
+
+    //Récupération des noms d'équipes et scores
+    public Cursor getScores(int id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor result = db.rawQuery("SELECT " + FeedEntry.COLUMN_MATCH_EQUIPE1 + ", " +
+                FeedEntry.COLUMN_MATCH_EQUIPE2 + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1 + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2 + " FROM " + TABLE_EQUIPE_NAME + " WHERE ("+
+                FeedEntry.COLUMN_MATCH_ID + " = " + id + ")", null);
+        return result;
+    }
+
+    //Récupération des entraineurs et joueurs
+    public Cursor getEquipes(int id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor result = db.rawQuery("SELECT " + FeedEntry.COLUMN_MATCH_ENTRAINEUR1 + ", " +
+                FeedEntry.COLUMN_MATCH_ENTRAINEUR2 + ", " +
+                FeedEntry.COLUMN_EQUIPE1_JOUEUR1 + ", " +
+                FeedEntry.COLUMN_EQUIPE1_JOUEUR2 + ", " +
+                FeedEntry.COLUMN_EQUIPE1_JOUEUR3 + ", " +
+                FeedEntry.COLUMN_EQUIPE2_JOUEUR1 + ", " +
+                FeedEntry.COLUMN_EQUIPE2_JOUEUR2 + ", " +
+                FeedEntry.COLUMN_EQUIPE2_JOUEUR3 + " FROM " + TABLE_EQUIPE_NAME + " WHERE ("+
+                FeedEntry.COLUMN_MATCH_ID + " = " + id + ")", null);
         return result;
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(EQUIPE_TABLE_CREATE );
+        db.execSQL(EQUIPE_TABLE_CREATE);
 
     }
 
