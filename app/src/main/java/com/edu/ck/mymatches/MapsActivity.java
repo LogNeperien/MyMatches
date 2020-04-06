@@ -41,32 +41,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        //Get location manager
-        locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-
-        //Critère pour le choix du fournisseur
-        Criteria criteria = new Criteria();
-        provider = locationManager.getBestProvider(criteria, false);
-
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                != PackageManager.PERMISSION_GRANTED) {
-            System.out.println("ACCESS DENIED");
-            return;
-        }
-
-        Location location = locationManager.getLastKnownLocation(provider);
-        if (location != null) {
-            System.out.println("Provider " + provider + " has been selected.");
-            onLocationChanged(location);
-        } else {
-            //Message d'erreur
-            System.out.println("Provider not found.");
-        }
     }
 
     /* Request updates at startup */
-    protected void onResume() {
+    /*protected void onResume() {
         super.onResume();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
@@ -77,7 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         locationManager.requestLocationUpdates(provider, 400, 1, (LocationListener) this);
     }
 
-    /* Remove the locationlistener updates when Activity is paused */
+    //Remove the locationlistener updates when Activity is paused
     @Override
     protected void onPause() {
         super.onPause();
@@ -111,7 +89,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onProviderDisabled(String provider) {
         Toast.makeText(this, "Disabled provider " + provider,
                 Toast.LENGTH_SHORT).show();
-    }
+    }*/
 
     /**
      * Manipulates the map once available.
@@ -125,13 +103,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        mMap.setMyLocationEnabled(true);
+        //mMap.setMyLocationEnabled(true);
         //mMap.setSatellite(true);
 
-        // Add a marker in Sydney and move the camera
-        //LatLng sydney = new LatLng(-34, 151);
-        //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-       //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        // Add a marker of the match and move the camera
+        LatLng match = new LatLng(48, 2);
+        mMap.addMarker(new MarkerOptions().position(match).title("Match Position"));
+       mMap.moveCamera(CameraUpdateFactory.newLatLng(match));
     }
 
     @Override
