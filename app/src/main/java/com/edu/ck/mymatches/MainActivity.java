@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,10 +46,15 @@ public class MainActivity extends AppCompatActivity {
         });
 
         nameMatch1 = (TextView) findViewById(R.id.nameMatch1);
+        LinearLayout layoutMatchs = (LinearLayout)findViewById(R.id.matchLayout);
+        layoutMatchs.removeAllViews();
         //myDataBase = new DatabaseHelper(this);
         myDataBase = new DatabaseHelper(getApplicationContext());
 
         boolean insertion = insertData("equipe");
+
+
+        //affichage d'un toast pour savoir si l'ajout a été réussi ou pas
         Context context = getApplicationContext();
         CharSequence text;
         int duration = Toast.LENGTH_SHORT;
@@ -64,14 +70,24 @@ public class MainActivity extends AppCompatActivity {
             toast.show();
         }
 
-        /*Cursor result = myDataBase.getDataEquipe("equipe");
+        Cursor result = myDataBase.getDataEquipe("Stade Français");
         result.moveToFirst();
+        String matchEntraineur = "";
+        String NomEquipe = "";
         while(!result.isAfterLast())
         {
-            nameMatch1.setText(result.getString(0));
+            NomEquipe = result.getString(result.getColumnIndexOrThrow("nom"));
+            matchEntraineur = result.getString(result.getColumnIndexOrThrow("entraineur"));
             result.moveToNext();
         }
-        result.close();*/
+        TextView newNomEquipe = new TextView(this);
+        newNomEquipe.setText(NomEquipe);
+        layoutMatchs.addView(newNomEquipe);
+        TextView newEntraineur = new TextView(this);
+        newEntraineur.setText(matchEntraineur);
+        layoutMatchs.addView(newEntraineur);
+
+        result.close();
     }
 
     public void launchSecondActivity(View view) {
