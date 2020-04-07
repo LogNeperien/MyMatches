@@ -12,22 +12,24 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.location.*;
 
-public class Localisation extends AppCompatActivity {
+public class Statistiques extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_localisation);
+        setContentView(R.layout.activity_statistiques);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
 
+        //Récupérer id du match et afficher toutes les infos
+
     }
 
 
+    //Menu avec bouton Home
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -37,9 +39,6 @@ public class Localisation extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -51,5 +50,6 @@ public class Localisation extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
 }

@@ -35,148 +35,60 @@
             android:layout_height="0dp"
             android:layout_weight="3"
 
-            android:orientation="vertical"
-            android:weightSum="5">
+            android:orientation="horizontal"
+            android:weightSum="2">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:weightSum="6">
 
                 <TextView
                     android:id="@+id/match1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:ems="10"
-                    android:text="@string/nameMatch"
-
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/dateMatch1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:ems="10"
-                    android:text="@string/date"
-
-                    android:textAlignment="center" />
-
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:background="#01A895"
-                    android:text="@string/infos" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/match2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:ems="10"
-                    android:text="@string/nameMatch"
-
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/dateMatch2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:ems="10"
-                    android:text="@string/date"
-
-                    android:textAlignment="center" />
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:background="#01A895"
-                    android:text="@string/infos" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/match3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:ems="10"
-                    android:text="@string/nameMatch"
-
-                    android:textAlignment="center" />
-
-                <TextView
-                    android:id="@+id/dateMatch3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:ems="10"
-                    android:text="@string/date"
-
-                    android:textAlignment="center" />
-
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:background="#01A895"
-                    android:text="@string/infos" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/match4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:ems="10"
-                    android:text="@string/nameMatch"
-
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
                 <TextView
-                    android:id="@+id/dateMatch4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
+                    android:id="@+id/match5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:ems="10"
-                    android:text="@string/date"
-
-                    android:textAlignment="center" />
-
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:background="#01A895"
-                    android:text="@string/infos" />
+                    android:textAlignment="center"
+                    android:textSize="18sp" />
 
             </LinearLayout>
 
@@ -184,33 +96,51 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:weightSum="6">
 
-                <TextView
-                    android:id="@+id/match5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:ems="10"
-                    android:text="@string/nameMatch"
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="#01A895"
+                    android:text="@string/infos" />
 
-                    android:textAlignment="center" />
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="#01A895"
+                    android:text="@string/infos" />
 
-                <TextView
-                    android:id="@+id/dateMatch5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="3"
-                    android:ems="10"
-                    android:text="@string/date"
+                <Button
+                    android:id="@+id/button3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="#01A895"
+                    android:text="@string/infos" />
 
-                    android:textAlignment="center" />
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:background="#01A895"
+                    android:text="@string/infos" />
 
                 <Button
                     android:id="@+id/button5"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
                     android:background="#01A895"
                     android:text="@string/infos" />
             </LinearLayout>
@@ -230,6 +160,15 @@
                 android:layout_gravity="center|top"
                 android:text="@string/matchs"
                 android:onClick="launchSecondActivity"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/buttonAjout"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|top"
+                android:onClick="launchSecondActivity"
+                android:text="@string/button_ajout_match"
                 android:textSize="17sp" />
 
         </LinearLayout>

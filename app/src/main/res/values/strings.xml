@@ -23,5 +23,10 @@
     <string name="title_activity_photos">Photos</string>
     <string name="localisation_title"> <u>Localisation du match</u></string>
     <string name="photos_title"><u>Photos du match</u></string>
+    <string name="title_activity_statistiques">Statistiques</string>
+    <string name="title_activity_maps">Localisation</string>
+    <string name="title_activity_database_helper">DatabaseHelper</string>
+    <string name="title_activity_new_match">Nouveau Match</string>
+    <string name="button_ajout_match">Ajout d\'un match</string>
 
 </resources>
