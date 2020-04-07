@@ -1,6 +1,7 @@
 package com.edu.ck.mymatches;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -53,6 +54,32 @@ public class MainActivity extends AppCompatActivity {
 
         //Récupération des 5 derniers matchs BDD SQLite
         db = new DatabaseHelper(this);
+
+        PreviousMatchs = (ArrayList<MatchC>) db.getPreviousMatchs();
+
+        //début toast
+        Context context = getApplicationContext();
+        CharSequence text = PreviousMatchs.get(0).getEquipe1();
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+        //fin toast
+
+
+        match1.setText(PreviousMatchs.get(0).getEquipe1() + " - " + PreviousMatchs.get(0).getEquipe2());
+        match2.setText(PreviousMatchs.get(1).getEquipe1() + " - " + PreviousMatchs.get(1).getEquipe2());
+        /*match3.setText(PreviousMatchs.get(2).getEquipe1() + " - " + PreviousMatchs.get(2).getEquipe2());
+        match4.setText(PreviousMatchs.get(3).getEquipe1() + " - " + PreviousMatchs.get(3).getEquipe2());
+        match5.setText(PreviousMatchs.get(4).getEquipe1() + " - " + PreviousMatchs.get(4).getEquipe2());*/
+
+
+        date1.setText(Integer.toString(PreviousMatchs.get(0).getDate()));
+        date2.setText(Integer.toString(PreviousMatchs.get(1).getDate()));
+        /*date3.setText(Integer.toString(PreviousMatchs.get(2).getDate()));
+        date4.setText(Integer.toString(PreviousMatchs.get(3).getDate()));
+        date5.setText(Integer.toString(PreviousMatchs.get(4).getDate()));
+        */
+
 
     }
 

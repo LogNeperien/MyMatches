@@ -277,8 +277,8 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
                                 score1.getText().toString(), score2.getText().toString(), entraineurInput.getText().toString(),
                                 entraineurInput2.getText().toString(), joueur1Input.getText().toString(), joueur2Input.getText().toString(),
                                 joueur3Input.getText().toString(), joueur4Input.getText().toString(), joueur5Input.getText().toString(),
-                                joueur6Input.getText().toString(), photoFinalByte, Integer.toString(lng),
-                                Integer.toString(lat), dateInput.getText().toString());
+                                joueur6Input.getText().toString(), photoFinalByte, Double.toString(lng),
+                                Double.toString(lat), dateInput.getText().toString());
 
                         if(isInserted == true)
                         {
