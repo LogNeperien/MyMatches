@@ -16,8 +16,10 @@ public class Match extends AppCompatActivity {
 
     public static final String EQUIPE1 = "EQUIPE1";
     public static final String EQUIPE2 = "EQUIPE2";
+    public static final String ID = "ID";
     private TextView e1, e2, score1, score2;
     DatabaseHelper db;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +31,14 @@ public class Match extends AppCompatActivity {
         score1 = findViewById(R.id.pointEquipe1);
         score2 = findViewById(R.id.pointEquipe2);
 
+        //Récupération de l'id du match
         Intent intent = getIntent();
+        id = intent.getIntExtra(MainActivity.ID, id);
 
-        //Récupérer l'id du match avec getExtra pour afficher les equipes et scores
-        //avec bdd
-        //esaai avec id 1
+        //Affichage equipes et score avec Id
         db = new DatabaseHelper(this);
 
-        Cursor data = db.getScores(1);
+        Cursor data = db.getScores(id);
         if(data.getCount() == 0)
         {
             Toast.makeText(Match.this,"Error, No Data Found !!",Toast.LENGTH_LONG).show();
@@ -63,6 +65,7 @@ public class Match extends AppCompatActivity {
                 String equipe2 = e2.getText().toString();
                 i.putExtra(EQUIPE1, equipe1);
                 i.putExtra(EQUIPE2, equipe2);
+                i.putExtra(ID, id);
                 startActivity(i);
                 break;
 

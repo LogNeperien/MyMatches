@@ -23,6 +23,7 @@ public class Informations extends AppCompatActivity {
     //public static final String EQUIPE2 = "EQUIPE2";
     private TextView e1, e2, liste1, liste2;
     DatabaseHelper db;
+    int id;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -36,7 +37,9 @@ public class Informations extends AppCompatActivity {
         liste1 = findViewById(R.id.listeEquipe1);
         liste2 = findViewById(R.id.listeEquipe2);
 
+        //Récupération de l'id du match
         Intent intent = getIntent();
+        id = intent.getIntExtra(Match.ID, id);
 
         //Affichage des noms des équipes
         String equipe1 = intent.getStringExtra(Match.EQUIPE1);
@@ -45,9 +48,8 @@ public class Informations extends AppCompatActivity {
         e2.setText(equipe2);
 
         //Affichage de la liste des joueurs
-        //Avec bdd (exemple avec id = 1)
         db = new DatabaseHelper(this);
-        Cursor data = db.getEquipes(1);
+        Cursor data = db.getEquipes(id);
 
         if(data.getCount() == 0)
         {

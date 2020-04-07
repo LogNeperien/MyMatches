@@ -36,12 +36,12 @@
             android:layout_weight="3"
 
             android:orientation="horizontal"
-            android:weightSum="2">
+            android:weightSum="5">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:orientation="vertical"
                 android:weightSum="6">
 
@@ -52,7 +52,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/match2"
@@ -61,7 +61,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/match3"
@@ -70,7 +70,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/match4"
@@ -79,7 +79,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/match5"
@@ -88,12 +88,67 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:textAlignment="center"
-                    android:textSize="18sp" />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:weightSum="6">
+
+
+                <TextView
+                    android:id="@+id/date1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/date2"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/date3"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/date4"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/date5"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:textAlignment="center"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical"
@@ -106,6 +161,7 @@
                     android:layout_marginTop="2dp"
                     android:layout_weight="1"
                     android:background="#01A895"
+                    android:onClick="launchSecondActivity"
                     android:text="@string/infos" />
 
                 <Button
@@ -115,6 +171,7 @@
                     android:layout_marginTop="2dp"
                     android:layout_weight="1"
                     android:background="#01A895"
+                    android:onClick="launchSecondActivity"
                     android:text="@string/infos" />
 
                 <Button
@@ -124,6 +181,7 @@
                     android:layout_marginTop="2dp"
                     android:layout_weight="1"
                     android:background="#01A895"
+                    android:onClick="launchSecondActivity"
                     android:text="@string/infos" />
 
                 <Button
@@ -133,6 +191,7 @@
                     android:layout_marginTop="2dp"
                     android:layout_weight="1"
                     android:background="#01A895"
+                    android:onClick="launchSecondActivity"
                     android:text="@string/infos" />
 
                 <Button
@@ -142,6 +201,7 @@
                     android:layout_marginTop="2dp"
                     android:layout_weight="1"
                     android:background="#01A895"
+                    android:onClick="launchSecondActivity"
                     android:text="@string/infos" />
             </LinearLayout>
 
