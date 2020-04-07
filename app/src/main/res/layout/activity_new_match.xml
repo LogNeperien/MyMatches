@@ -93,7 +93,7 @@
                 android:id="@+id/photo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:text="Photo :"
                 android:textSize="14sp" />
@@ -164,13 +164,19 @@
                 android:ems="10"
                 android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/editText_photo"
+            <Button
+                android:id="@+id/buttonImagePhoto"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:text="@string/boutonImage" />
+
+            <Button
+                android:id="@+id/buttonImageGallery"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/boutonImage2" />
 
             <EditText
                 android:id="@+id/editText_date"
@@ -243,7 +249,7 @@
                 android:gravity="center"
                 android:text="Joueur 3 :"
                 android:textSize="14sp" />
-            
+
         </LinearLayout>
 
         <LinearLayout
