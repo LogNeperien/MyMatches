@@ -15,6 +15,8 @@ import android.view.View;
 
 public class Photos extends AppCompatActivity {
 
+    int id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,7 @@ public class Photos extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
+        id = intent.getIntExtra(Match.ID, id);
 
     }
 

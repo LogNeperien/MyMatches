@@ -108,7 +108,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
                 break;
             case R.id.buttonMatch:
-
+                //Envoi sur page de tous les matchs
+                //i = new Intent(this, AllMatchs.class);
+                //startActivity(i);
                 break;
             case R.id.buttonAjout:
                 i = new Intent(this, NewMatchActivity.class);

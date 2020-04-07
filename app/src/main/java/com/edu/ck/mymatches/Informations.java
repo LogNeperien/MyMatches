@@ -58,10 +58,10 @@ public class Informations extends AppCompatActivity {
         }
         while(data.moveToNext())
         {
-            liste1.setText(data.getString(0) + data.getString(2)
-                    + data.getString(3) + data.getString(4));
-            liste2.setText(data.getString(1) + data.getString(5)
-                    + data.getString(6) + data.getString(7));
+            liste1.setText(data.getString(0) + "\n" + data.getString(2)
+                    + "\n" + data.getString(3)+ "\n" + data.getString(4));
+            liste2.setText(data.getString(1)+ "\n" +data.getString(5)
+                    + data.getString(6) + "\n" + data.getString(7));
         }
     }
 

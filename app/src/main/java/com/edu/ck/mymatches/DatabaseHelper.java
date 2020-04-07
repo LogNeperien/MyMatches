@@ -183,6 +183,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return matchs;
     }
 
+    //Récupération Latitude et Longitude du match
+    public Cursor GetLatLng(int id){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT " + FeedEntry.COLUMN_MATCH_LONGITUDE + ", " +
+                FeedEntry.COLUMN_MATCH_LATITUDE + " FROM " + TABLE_EQUIPE_NAME +
+                " WHERE ("+ FeedEntry.COLUMN_MATCH_ID + " = " + id + ")", null);
+
+        return cursor;
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(EQUIPE_TABLE_CREATE);

@@ -9,6 +9,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -28,6 +29,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    int id;
+    DatabaseHelper db;
+    Double lat, lng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +41,27 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
+        id = intent.getIntExtra(Match.ID, id);
+
+        //Affichage equipes et score avec Id
+        db = new DatabaseHelper(this);
+        Cursor data = db.GetLatLng(id);
+
+        if(data.getCount() == 0)
+        {
+            Toast.makeText(MapsActivity.this,"Error, No Lat / Long Found !!",Toast.LENGTH_LONG).show();
+            return;
+        }
+        while(data.moveToNext()) {
+            lng = data.getDouble(0);
+            lat = data.getDouble(1);
+        }
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
 
     }
 
@@ -57,13 +77,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        //mMap.setMyLocationEnabled(true);
-        //mMap.setSatellite(true);
+        float zoom = 16.0f;
+
+        //Affichage lat et long en fonction de l'id
+        LatLng match = new LatLng(lat,lng);
 
         // Add a marker of the match and move the camera
-        LatLng match = new LatLng(48, 2);
-        mMap.addMarker(new MarkerOptions().position(match).title("Match Position"));
-       mMap.moveCamera(CameraUpdateFactory.newLatLng(match));
+        mMap.addMarker(new MarkerOptions().position(match).title("Lieu du match"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(match, zoom));
     }
 
     @Override

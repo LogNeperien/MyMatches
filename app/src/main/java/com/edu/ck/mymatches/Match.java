@@ -71,19 +71,19 @@ public class Match extends AppCompatActivity {
 
             case R.id.buttonLocalisation:
                 i = new Intent(this, MapsActivity.class);
-                //Envoyer longitude et latitude du match
+                i.putExtra(ID, id);
                 startActivity(i);
                 break;
 
             case R.id.buttonPhoto:
                 i = new Intent(this, Photos.class);
-                //envoyer id du match
+                i.putExtra(ID, id);
                 startActivity(i);
                 break;
 
             case R.id.buttonStatistiques:
                 i = new Intent(this, Statistiques.class);
-                //Envoyer id du match
+                i.putExtra(ID, id);
                 startActivity(i);
                 break;
             default:

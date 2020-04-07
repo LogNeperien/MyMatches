@@ -32,7 +32,7 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
     EditText score1, score2, entraineurInput2, photoInput, dateInput;
     private String provider;
     LocationManager locationManager;
-    int lat, lng;
+    double lat, lng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,8 +141,8 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
 
     public void onLocationChanged(Location location)
     {
-        lat = (int) location.getLatitude();
-        lng = (int) location.getLongitude();
+        lat = location.getLatitude();
+        lng = location.getLongitude();
 
         Log.d("GPSok", "lat" + lat + "et long " + lng);
         //Stockage BDD
@@ -170,8 +170,8 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
                                 score1.getText().toString(), score2.getText().toString(), entraineurInput.getText().toString(),
                                 entraineurInput2.getText().toString(), joueur1Input.getText().toString(), joueur2Input.getText().toString(),
                                 joueur3Input.getText().toString(), joueur4Input.getText().toString(), joueur5Input.getText().toString(),
-                                joueur6Input.getText().toString(), photoInput.getText().toString(), Integer.toString(lng),
-                                Integer.toString(lat), dateInput.getText().toString());
+                                joueur6Input.getText().toString(), photoInput.getText().toString(), Double.toString(lng),
+                                Double.toString(lat), dateInput.getText().toString());
                         if(isInserted == true)
                         {
                             Toast.makeText(NewMatchActivity.this, "Data Inserted !!",Toast.LENGTH_LONG).show();

@@ -15,6 +15,8 @@ import android.view.View;
 
 public class Statistiques extends AppCompatActivity {
 
+    int id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +25,7 @@ public class Statistiques extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
+        id = intent.getIntExtra(Match.ID, id);
 
         //Récupérer id du match et afficher toutes les infos
 
