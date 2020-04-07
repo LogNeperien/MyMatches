@@ -40,10 +40,11 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
     Button buttonImagePhoto, buttonImageGallery;
     private String provider;
     LocationManager locationManager;
-    int lat, lng;
+
     private int GALLERY_REQUEST_CODE = 101;
     private int CAMERA_REQUEST_CODE = 100;
     private byte[] photoFinalByte;
+    double lat, lng;
 
     ///PRIVATE FONCTION
     private void pickFromGallery(){
@@ -57,6 +58,9 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
         // Launching the Intent
         startActivityForResult(intent,GALLERY_REQUEST_CODE);
     }
+
+    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -205,8 +209,8 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
 
     public void onLocationChanged(Location location)
     {
-        lat = (int) location.getLatitude();
-        lng = (int) location.getLongitude();
+        lat = location.getLatitude();
+        lng = location.getLongitude();
 
         Log.d("GPSok", "lat" + lat + "et long " + lng);
         //Stockage BDD
@@ -275,6 +279,7 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
                                 joueur3Input.getText().toString(), joueur4Input.getText().toString(), joueur5Input.getText().toString(),
                                 joueur6Input.getText().toString(), photoFinalByte, Integer.toString(lng),
                                 Integer.toString(lat), dateInput.getText().toString());
+
                         if(isInserted == true)
                         {
                             Toast.makeText(NewMatchActivity.this, "Data Inserted !!",Toast.LENGTH_LONG).show();

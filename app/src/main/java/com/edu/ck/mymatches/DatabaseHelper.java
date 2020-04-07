@@ -155,18 +155,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //Récupération des 5 derniers matchs pour MainActivity
-    //A REMPLIR !!!
     public List<MatchC> getPreviousMatchs()
     {
         List<MatchC> matchs = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor result = db.rawQuery("SELECT " + FeedEntry.COLUMN_MATCH_ID + ", " +
+
+        Cursor cursor = db.rawQuery("SELECT " + FeedEntry.COLUMN_MATCH_ID + ", " +
                 FeedEntry.COLUMN_MATCH_EQUIPE1 + ", " +
                 FeedEntry.COLUMN_MATCH_EQUIPE2 + ", " +
                 FeedEntry.COLUMN_MATCH_DATE + " FROM " + TABLE_EQUIPE_NAME +
                 " ORDER BY " + FeedEntry.COLUMN_MATCH_DATE + " DESC LIMIT 5", null);
 
+        if(cursor.moveToFirst())
+        {
+            do{
+                MatchC match = new MatchC();
+                match.setId(cursor.getInt(cursor.getColumnIndex(FeedEntry.COLUMN_MATCH_ID)));
+                match.setEquipe1(cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_MATCH_EQUIPE1)));
+                match.setEquipe2(cursor.getString(cursor.getColumnIndex(FeedEntry.COLUMN_MATCH_EQUIPE2)));
+                match.setDate(cursor.getInt(cursor.getColumnIndex(FeedEntry.COLUMN_MATCH_DATE)));
+
+                matchs.add(match);
+            }while(cursor.moveToNext());
+        }
+
+        db.close();
         return matchs;
+    }
+
+    //Récupération Latitude et Longitude du match
+    public Cursor GetLatLng(int id){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery("SELECT " + FeedEntry.COLUMN_MATCH_LONGITUDE + ", " +
+                FeedEntry.COLUMN_MATCH_LATITUDE + " FROM " + TABLE_EQUIPE_NAME +
+                " WHERE ("+ FeedEntry.COLUMN_MATCH_ID + " = " + id + ")", null);
+
+        return cursor;
     }
 
     @Override

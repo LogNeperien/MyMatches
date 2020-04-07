@@ -5,13 +5,13 @@ public class MatchC {
     private int id;
     private String equipe1, equipe2, score1, score2, entraineur1, entraineur2;
     private String joueur1, joueur2, joueur3, joueur4, joueur5, joueur6;
-    private int lng, lat;
+    private int lng, lat, date;
 
     public MatchC() {}
 
     public MatchC(int id, String equipe1, String equipe2, String score1, String score2, String entraineur1,
                   String entraineur2, String joueur1, String joueur2, String joueur3, String joueur4,
-                  String joueur5, String joueur6, int lng, int lat) {
+                  String joueur5, String joueur6, int lng, int lat, int date) {
         this.id = id;
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;
@@ -27,6 +27,7 @@ public class MatchC {
         this.joueur6 = joueur6;
         this.lng = lng;
         this.lat = lat;
+        this.date = date;
     }
 
     //Tous les getters
@@ -45,8 +46,10 @@ public class MatchC {
     public String getJoueur6() {return joueur6; }
     public int getLng() {return lng; }
     public int getLat() {return lat; }
+    public int getDate() {return date;}
 
     //Tous les setters
+    public int setId(int id) { this.id = id; return id;}
     public String setEquipe1(String equipe1) {this.equipe1 = equipe1; return equipe1; }
     public String setEquipe2(String equipe2) {this.equipe2 = equipe2; return equipe2;}
     public String setScore1(String score1) {this.score1 = score1; return score1;}
@@ -61,5 +64,6 @@ public class MatchC {
     public String setJoueur6(String joueur6) {this.joueur6 = joueur6; return joueur6; }
     public int setLng(int lng) {this.lng = lng; return lng; }
     public int setLat(int lat) {this.lat = lat; return lat;}
+    public int setDate(int date) {this.date = date; return date;}
 
 }

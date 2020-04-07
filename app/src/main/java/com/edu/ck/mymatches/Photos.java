@@ -25,11 +25,13 @@ import android.widget.Toast;
 
 public class Photos extends AppCompatActivity {
 
+
     ///VARIABLE DE LA CLASSE
     ImageView imageDisplay;
-
+    int id;
 
     ///PUBLIC FONCTION
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +39,12 @@ public class Photos extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         imageDisplay = (ImageView) findViewById(R.id.photo1);
+
+        Intent intent = getIntent();
+        id = intent.getIntExtra(Match.ID, id);
+
 
     }
 
