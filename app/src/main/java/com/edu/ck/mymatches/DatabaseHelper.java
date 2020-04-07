@@ -126,7 +126,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    //Récupération des noms d'équipes et scores
+    //Récupération des noms d'équipes et scores avec id
     public Cursor getScores(int id)
     {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -138,7 +138,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    //Récupération des entraineurs et joueurs
+    //Récupération des entraineurs et joueurs avec id
     public Cursor getEquipes(int id)
     {
         SQLiteDatabase db = this.getReadableDatabase();

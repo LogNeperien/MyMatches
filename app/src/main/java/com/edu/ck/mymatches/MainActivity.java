@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         //BDD
         db = new DatabaseHelper(this);
 
-        Cursor data = db.getPreviousMatchs();
+        /*Cursor data = db.getPreviousMatchs();
 
         if(data.getCount() == 0)
         {
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         {
             //L'appli ne se lance pas si récupération des données ici
             //match1.setText(data.getString(1));
-        }
+        }*/
 
     }
 
