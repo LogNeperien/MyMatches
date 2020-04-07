@@ -1,6 +1,7 @@
 package com.edu.ck.mymatches;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class Photos extends AppCompatActivity {
 
@@ -45,8 +47,7 @@ public class Photos extends AppCompatActivity {
         buttonImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentPhoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(intentPhoto, 100);
+                startActivityForResult(new Intent(MediaStore.ACTION_IMAGE_CAPTURE), 100);
             }
         }
         );
@@ -57,6 +58,13 @@ public class Photos extends AppCompatActivity {
     {
         if(requestCode == 100)
         {
+            Context context = getApplicationContext();
+            CharSequence text = "Coucou";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+
             Bitmap bitmap  = (Bitmap) data.getExtras().get("data");
             imageDisplay.setImageBitmap(bitmap);
         }
