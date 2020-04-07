@@ -69,20 +69,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     FeedEntry.COLUMN_MATCH_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     FeedEntry.COLUMN_MATCH_EQUIPE1 + " TEXT, " +
                     FeedEntry.COLUMN_MATCH_EQUIPE2 + " TEXT, " +
-                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1 + " TEXT, " +
-                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2 + " TEXT, " +
-                    FeedEntry.COLUMN_MATCH_ENTRAINEUR1 + " Entraineur, " +
-                    FeedEntry.COLUMN_MATCH_ENTRAINEUR2 + " Entraineur, " +
-                    FeedEntry.COLUMN_EQUIPE1_JOUEUR1 + " Joueur1, " +
-                    FeedEntry.COLUMN_EQUIPE1_JOUEUR2 + " TEXT2, " +
-                    FeedEntry.COLUMN_EQUIPE1_JOUEUR3 + " TEXT3, " +
-                    FeedEntry.COLUMN_EQUIPE2_JOUEUR1 + " Joueur1, " +
-                    FeedEntry.COLUMN_EQUIPE2_JOUEUR2 + " TEXT2, " +
-                    FeedEntry.COLUMN_EQUIPE2_JOUEUR3 + " TEXT3, " +
-                    FeedEntry.COLUMN_MATCH_PHOTO + " TEXT3, " +
-                    FeedEntry.COLUMN_MATCH_LONGITUDE + " TEXT5, " +
-                    FeedEntry.COLUMN_MATCH_LATITUDE + " TEXT6, " +
-                    FeedEntry.COLUMN_MATCH_DATE + " TEXTE)";
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1 + " INTEGER, " +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2 + " INTEGER, " +
+                    FeedEntry.COLUMN_MATCH_ENTRAINEUR1 + " TEXT, " +
+                    FeedEntry.COLUMN_MATCH_ENTRAINEUR2 + " TEXT, " +
+                    FeedEntry.COLUMN_EQUIPE1_JOUEUR1 + " TEXT, " +
+                    FeedEntry.COLUMN_EQUIPE1_JOUEUR2 + " TEXT, " +
+                    FeedEntry.COLUMN_EQUIPE1_JOUEUR3 + " TEXT, " +
+                    FeedEntry.COLUMN_EQUIPE2_JOUEUR1 + " TEXT, " +
+                    FeedEntry.COLUMN_EQUIPE2_JOUEUR2 + " TEXT, " +
+                    FeedEntry.COLUMN_EQUIPE2_JOUEUR3 + " TEXT, " +
+                    FeedEntry.COLUMN_MATCH_PHOTO + " TEXT, " +
+                    FeedEntry.COLUMN_MATCH_LONGITUDE + " DOUBLE, " +
+                    FeedEntry.COLUMN_MATCH_LATITUDE + " DOUBLE, " +
+                    FeedEntry.COLUMN_MATCH_DATE + " DATE)";
 
 
     //Insertion dans la table equipe
