@@ -1,6 +1,8 @@
 package com.edu.ck.mymatches;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
@@ -14,11 +16,18 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String ID = "ID_MATCH";
+    TextView match1, match2, match3, match4, match5;
+    DatabaseHelper db;
 
-
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +35,36 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Initialisation des Views
+        match1 = findViewById(R.id.match1);
+        match2 = findViewById(R.id.match2);
+        match3 = findViewById(R.id.match3);
+        match4 = findViewById(R.id.match4);
+        match5 = findViewById(R.id.match5);
+
+        //BDD
+        db = new DatabaseHelper(this);
+
+        Cursor data = db.getPreviousMatchs();
+
+        if(data.getCount() == 0)
+        {
+            Toast.makeText(MainActivity.this,"Error, No Data Found !!",Toast.LENGTH_LONG).show();
+            return;
+        }
+        else
+        {
+            //L'appli ne se lance pas si récupération des données ici
+            //match1.setText(data.getString(1));
+        }
+
     }
 
     public void launchSecondActivity(View view) {
         switch (view.getId()) {
 
             case R.id.buttonMatch:
+                //if(id )
                 Intent i = new Intent(this, Match.class);
                 startActivity(i);
                 break;

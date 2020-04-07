@@ -17,10 +17,13 @@ import androidx.appcompat.widget.Toolbar;
 import android.provider.BaseColumns;
 import android.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     //version
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
     //nom database
     private static final String DATABASE_NAME = "MyMatches.db";
 
@@ -56,6 +59,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String COLUMN_MATCH_PHOTO = "photo";
         public static final String COLUMN_MATCH_LONGITUDE = "longitude";
         public static final String COLUMN_MATCH_LATITUDE = "latitude";
+        public static final String COLUMN_MATCH_DATE = "date";
 
     }
 
@@ -77,14 +81,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     FeedEntry.COLUMN_EQUIPE2_JOUEUR3 + " TEXT3, " +
                     FeedEntry.COLUMN_MATCH_PHOTO + " TEXT3, " +
                     FeedEntry.COLUMN_MATCH_LONGITUDE + " TEXT5, " +
-                    FeedEntry.COLUMN_MATCH_LATITUDE + " TEXT6)";
+                    FeedEntry.COLUMN_MATCH_LATITUDE + " TEXT6, " +
+                    FeedEntry.COLUMN_MATCH_DATE + " TEXTE)";
 
 
     //Insertion dans la table equipe
     public boolean insertDataMatch(String equipe1, String equipe2, String score1, String score2,
                                     String entraineur1, String entraineur2, String joueur1, String joueur2,
                                     String joueur3,String joueur4, String joueur5, String joueur6, String photo,
-                                    String longitude, String latitude)
+                                    String longitude, String latitude, String date)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -104,6 +109,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FeedEntry.COLUMN_MATCH_PHOTO, photo);
         values.put(FeedEntry.COLUMN_MATCH_LONGITUDE, longitude);
         values.put(FeedEntry.COLUMN_MATCH_LATITUDE, latitude);
+        values.put(FeedEntry.COLUMN_MATCH_DATE, date);
 
         long result = db.insert(TABLE_EQUIPE_NAME, null, values);
 
@@ -146,6 +152,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FeedEntry.COLUMN_EQUIPE2_JOUEUR3 + " FROM " + TABLE_EQUIPE_NAME + " WHERE ("+
                 FeedEntry.COLUMN_MATCH_ID + " = " + id + ")", null);
         return result;
+    }
+
+    //Récupération des 5 derniers matchs pour MainActivity
+    //A REMPLIR !!!
+    public List<MatchC> getPreviousMatchs()
+    {
+        List<MatchC> matchs = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor result = db.rawQuery("SELECT " + FeedEntry.COLUMN_MATCH_ID + ", " +
+                FeedEntry.COLUMN_MATCH_EQUIPE1 + ", " +
+                FeedEntry.COLUMN_MATCH_EQUIPE2 + ", " +
+                FeedEntry.COLUMN_MATCH_DATE + " FROM " + TABLE_EQUIPE_NAME +
+                " ORDER BY " + FeedEntry.COLUMN_MATCH_DATE + " DESC LIMIT 5", null);
+
+        return matchs;
     }
 
     @Override

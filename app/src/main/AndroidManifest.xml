@@ -53,10 +53,6 @@
             android:label="@string/title_activity_photos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Localisation"
-            android:label="@string/title_activity_localisation"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".Informations"
             android:label="@string/title_activity_info"
             android:theme="@style/AppTheme.NoActionBar" />

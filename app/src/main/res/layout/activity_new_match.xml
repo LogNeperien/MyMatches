@@ -99,21 +99,14 @@
                 android:textSize="14sp" />
 
             <TextView
-                android:id="@+id/longitude"
+                android:id="@+id/date"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="Longitude :"
+                android:text="Date :"
                 android:textSize="14sp" />
-            <TextView
-                android:id="@+id/latitude"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Latitude :"
-                android:textSize="14sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -180,21 +173,12 @@
                 android:inputType="textPersonName" />
 
             <EditText
-                android:id="@+id/editText_longitude"
+                android:id="@+id/editText_date"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName" />
-
-            <EditText
-                android:id="@+id/editText_latitude"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName" />
-
+                android:inputType="date" />
 
         </LinearLayout>
 

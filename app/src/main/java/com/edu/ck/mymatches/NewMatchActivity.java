@@ -29,7 +29,7 @@ import android.widget.Toast;
 public class NewMatchActivity extends AppCompatActivity implements LocationListener{
     DatabaseHelper db;
     EditText equipeInput, equipeInput2, entraineurInput, joueur1Input, joueur2Input, joueur3Input, joueur4Input, joueur5Input, joueur6Input;
-    EditText score1, score2, entraineurInput2, photoInput;
+    EditText score1, score2, entraineurInput2, photoInput, dateInput;
     private String provider;
     LocationManager locationManager;
     int lat, lng;
@@ -58,8 +58,7 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
         joueur5Input = findViewById(R.id.editText_joueur2_e2);
         joueur6Input = findViewById(R.id.editText_joueur3_e2);
         photoInput = findViewById(R.id.editText_photo);
-        //longInput = findViewById(R.id.editText_longitude);
-        //latInput = findViewById(R.id.editText_latitude);
+        dateInput = findViewById(R.id.editText_date);
 
         //Géolocalisation
         //Get location manager
@@ -172,7 +171,7 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
                                 entraineurInput2.getText().toString(), joueur1Input.getText().toString(), joueur2Input.getText().toString(),
                                 joueur3Input.getText().toString(), joueur4Input.getText().toString(), joueur5Input.getText().toString(),
                                 joueur6Input.getText().toString(), photoInput.getText().toString(), Integer.toString(lng),
-                                Integer.toString(lat));
+                                Integer.toString(lat), dateInput.getText().toString());
                         if(isInserted == true)
                         {
                             Toast.makeText(NewMatchActivity.this, "Data Inserted !!",Toast.LENGTH_LONG).show();

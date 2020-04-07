@@ -34,7 +34,7 @@ public class Match extends AppCompatActivity {
         //Récupérer l'id du match avec getExtra pour afficher les equipes et scores
         //avec bdd
         //esaai avec id 1
-        db = new DatabaseHelper(this);;
+        db = new DatabaseHelper(this);
 
         Cursor data = db.getScores(1);
         if(data.getCount() == 0)
