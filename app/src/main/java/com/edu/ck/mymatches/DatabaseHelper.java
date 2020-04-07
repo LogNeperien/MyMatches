@@ -126,7 +126,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
-    //Récupération des noms d'équipes et scores avec id
+    //Récupération du scores avec id
     public Cursor getScores(int id)
     {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -134,6 +134,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FeedEntry.COLUMN_MATCH_EQUIPE2 + ", " +
                 FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1 + ", " +
                 FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2 + " FROM " + TABLE_EQUIPE_NAME + " WHERE ("+
+                FeedEntry.COLUMN_MATCH_ID + " = " + id + ")", null);
+        return result;
+    }
+
+    //Récupération de la photo avec id
+    public Cursor getPhoto(int id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor result = db.rawQuery("SELECT " + FeedEntry.COLUMN_MATCH_PHOTO  +
+                " FROM " + TABLE_EQUIPE_NAME + " WHERE ("+
                 FeedEntry.COLUMN_MATCH_ID + " = " + id + ")", null);
         return result;
     }

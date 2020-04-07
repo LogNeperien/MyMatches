@@ -28,7 +28,9 @@ public class Photos extends AppCompatActivity {
 
     ///VARIABLE DE LA CLASSE
     ImageView imageDisplay;
-    int id;
+    private int id;
+    private byte[] imgByte;
+
 
     ///PUBLIC FONCTION
 
@@ -44,7 +46,10 @@ public class Photos extends AppCompatActivity {
 
         Intent intent = getIntent();
         id = intent.getIntExtra(Match.ID, id);
+        imgByte = intent.getByteArrayExtra("PHOTO");
 
+        Bitmap bitmap = BitmapFactory.decodeByteArray(imgByte, 0, imgByte.length);
+        imageDisplay.setImageBitmap(bitmap);
 
     }
 

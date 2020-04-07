@@ -17,9 +17,11 @@ public class Match extends AppCompatActivity {
     public static final String EQUIPE1 = "EQUIPE1";
     public static final String EQUIPE2 = "EQUIPE2";
     public static final String ID = "ID";
+    public static final String PHOTO = "PHOTO";
     private TextView e1, e2, score1, score2;
     DatabaseHelper db;
     int id;
+    private byte[] photoByte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,11 @@ public class Match extends AppCompatActivity {
             score1.setText(data.getString(2));
             score2.setText(data.getString(3));
         }
+        Cursor photo = db.getPhoto(id);
+        while(data.moveToNext())
+        {
+            photoByte = photo.getBlob(0);
+        }
 
     }
 
@@ -78,6 +85,7 @@ public class Match extends AppCompatActivity {
             case R.id.buttonPhoto:
                 i = new Intent(this, Photos.class);
                 i.putExtra(ID, id);
+                i.putExtra(PHOTO, photoByte);
                 startActivity(i);
                 break;
 
