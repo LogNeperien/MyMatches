@@ -79,7 +79,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     FeedEntry.COLUMN_EQUIPE2_JOUEUR1 + " Joueur1, " +
                     FeedEntry.COLUMN_EQUIPE2_JOUEUR2 + " TEXT2, " +
                     FeedEntry.COLUMN_EQUIPE2_JOUEUR3 + " TEXT3, " +
-                    FeedEntry.COLUMN_MATCH_PHOTO + " TEXT3, " +
+                    FeedEntry.COLUMN_MATCH_PHOTO + " BLOB, " +
                     FeedEntry.COLUMN_MATCH_LONGITUDE + " TEXT5, " +
                     FeedEntry.COLUMN_MATCH_LATITUDE + " TEXT6, " +
                     FeedEntry.COLUMN_MATCH_DATE + " TEXTE)";
@@ -88,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     //Insertion dans la table equipe
     public boolean insertDataMatch(String equipe1, String equipe2, String score1, String score2,
                                     String entraineur1, String entraineur2, String joueur1, String joueur2,
-                                    String joueur3,String joueur4, String joueur5, String joueur6, String photo,
+                                    String joueur3,String joueur4, String joueur5, String joueur6, byte[] photo,
                                     String longitude, String latitude, String date)
     {
         SQLiteDatabase db = this.getWritableDatabase();

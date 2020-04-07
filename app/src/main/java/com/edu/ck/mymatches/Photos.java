@@ -1,21 +1,36 @@
 package com.edu.ck.mymatches;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 public class Photos extends AppCompatActivity {
 
+
+    ///VARIABLE DE LA CLASSE
+    ImageView imageDisplay;
     int id;
+
+    ///PUBLIC FONCTION
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +39,12 @@ public class Photos extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        imageDisplay = (ImageView) findViewById(R.id.photo1);
+
         Intent intent = getIntent();
         id = intent.getIntExtra(Match.ID, id);
+
 
     }
 
