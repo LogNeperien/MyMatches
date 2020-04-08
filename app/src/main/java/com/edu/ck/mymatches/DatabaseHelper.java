@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.provider.BaseColumns;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +92,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                                     String joueur3,String joueur4, String joueur5, String joueur6, byte[] photo,
                                     String longitude, String latitude, String date)
     {
+
+
+
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
