@@ -5,10 +5,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +22,7 @@ public class Match extends AppCompatActivity {
     public static final String ID = "ID";
     public static final String PHOTO = "PHOTO";
     private TextView e1, e2, score1, score2;
+    private ImageView image;
     DatabaseHelper db;
     int id;
     private byte[] photoByte;
@@ -32,6 +36,7 @@ public class Match extends AppCompatActivity {
         e2 = (TextView) findViewById(R.id.nomEquipe2);
         score1 = findViewById(R.id.pointEquipe1);
         score2 = findViewById(R.id.pointEquipe2);
+        image = findViewById(R.id.imageView);
 
         //Récupération de l'id du match
         Intent intent = getIntent();
@@ -59,6 +64,8 @@ public class Match extends AppCompatActivity {
         {
             photoByte = photo.getBlob(0);
         }
+        Bitmap bitmap = BitmapFactory.decodeByteArray(photoByte, 0, photoByte.length);
+        image.setImageBitmap(bitmap);
 
     }
 
