@@ -3,6 +3,7 @@ package com.edu.ck.mymatches;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -64,8 +65,25 @@ public class Match extends AppCompatActivity {
         {
             photoByte = photo.getBlob(0);
         }
-        Bitmap bitmap = BitmapFactory.decodeByteArray(photoByte, 0, photoByte.length);
-        image.setImageBitmap(bitmap);
+
+        //début toast
+        Context context = getApplicationContext();
+        CharSequence text;
+        if(photoByte != null)
+        {
+            text = new String(photoByte);
+        }
+        else
+        {
+            text = "c'est nul";
+        }
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+        //fin toast
+
+        //Bitmap bitmap = BitmapFactory.decodeByteArray(photoByte, 0, photoByte.length);
+        //image.setImageBitmap(bitmap);
 
     }
 
