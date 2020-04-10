@@ -70,7 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String COLUMN_MATCH_SCORE_EQUIPE2_40MIN = "score40minE2";
         public static final String COLUMN_MATCH_SCORE_EQUIPE2_60MIN = "score60minE2";
         public static final String COLUMN_MATCH_SCORE_EQUIPE2_80MIN = "score80minE2";
-        
+
 
     }
 
@@ -108,7 +108,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean insertDataMatch(String equipe1, String equipe2, String score1, String score2,
                                     String entraineur1, String entraineur2, String joueur1, String joueur2,
                                     String joueur3,String joueur4, String joueur5, String joueur6, byte[] photo,
-                                    String longitude, String latitude, String date)
+                                    String longitude, String latitude, String date,
+                                    int e1_20, int e1_40, int e1_60, int e1_80,
+                                    int e2_20, int e2_40, int e2_60, int e2_80)
     {
 
 
@@ -132,6 +134,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FeedEntry.COLUMN_MATCH_LONGITUDE, longitude);
         values.put(FeedEntry.COLUMN_MATCH_LATITUDE, latitude);
         values.put(FeedEntry.COLUMN_MATCH_DATE, date);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_20MIN, e1_20);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_40MIN, e1_40);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_60MIN, e1_60);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_80MIN, e1_80);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_20MIN, e2_20);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_40MIN, e2_40);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_60MIN, e2_60);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_80MIN, e2_80);
 
         long result = db.insert(TABLE_EQUIPE_NAME, null, values);
 

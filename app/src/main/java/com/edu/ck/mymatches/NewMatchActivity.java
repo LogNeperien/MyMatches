@@ -36,7 +36,8 @@ import java.io.ByteArrayOutputStream;
 public class NewMatchActivity extends AppCompatActivity implements LocationListener{
     DatabaseHelper db;
     EditText equipeInput, equipeInput2, entraineurInput, joueur1Input, joueur2Input, joueur3Input, joueur4Input, joueur5Input, joueur6Input;
-    EditText score1, score2, entraineurInput2, photoInput, dateInput;
+    EditText score1, score2, entraineurInput2, dateInput;
+    EditText e1_20, e1_40, e1_60, e1_80, e2_20, e2_40, e2_60, e2_80;
     Button buttonImagePhoto, buttonImageGallery;
     private String provider;
     LocationManager locationManager;
@@ -45,21 +46,6 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
     private int CAMERA_REQUEST_CODE = 100;
     private byte[] photoFinalByte;
     double lat, lng;
-
-    ///PRIVATE FONCTION
-    private void pickFromGallery(){
-        //Create an Intent with action as ACTION_PICK
-        Intent intent= new Intent(Intent.ACTION_PICK);
-        // Sets the type as image/*. This ensures only components of type image are selected
-        intent.setType("image/*");
-        //We pass an extra array with the accepted mime types. This will ensure only components with these MIME types as targeted.
-        String[] mimeTypes = {"image/jpeg", "image/png"};
-        intent.putExtra(Intent.EXTRA_MIME_TYPES,mimeTypes);
-        // Launching the Intent
-        startActivityForResult(intent,GALLERY_REQUEST_CODE);
-    }
-
-    
 
 
     @Override
@@ -88,6 +74,15 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
         dateInput = findViewById(R.id.editText_date);
         buttonImagePhoto = (Button) findViewById(R.id.buttonImagePhoto);
         buttonImageGallery = (Button) findViewById(R.id.buttonImageGallery);
+        e1_20 = findViewById(R.id.e1_20);
+        e1_40 = findViewById(R.id.e1_40);
+        e1_60 = findViewById(R.id.e1_60);
+        e1_80 = findViewById(R.id.e1_80);
+        e2_20 = findViewById(R.id.e2_20);
+        e2_40 = findViewById(R.id.e2_40);
+        e2_60 = findViewById(R.id.e2_60);
+        e2_80 = findViewById(R.id.e2_80);
+
 
         Log.d("coucou", "0");
 
@@ -132,7 +127,6 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
             Log.d("providernotfound", "mince");
         }
 
-        Log.d("coucou", "2");
 
         if (ContextCompat.checkSelfPermission(NewMatchActivity.this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED)
         {
@@ -278,7 +272,11 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
                                 entraineurInput2.getText().toString(), joueur1Input.getText().toString(), joueur2Input.getText().toString(),
                                 joueur3Input.getText().toString(), joueur4Input.getText().toString(), joueur5Input.getText().toString(),
                                 joueur6Input.getText().toString(), photoFinalByte, Double.toString(lng),
-                                Double.toString(lat), dateInput.getText().toString());
+                                Double.toString(lat), dateInput.getText().toString(), Integer.parseInt(e1_20.getText().toString()) ,
+                                Integer.parseInt(e1_40.getText().toString()), Integer.parseInt(e1_60.getText().toString()),
+                                Integer.parseInt(e1_80.getText().toString()), Integer.parseInt(e2_20.getText().toString()),
+                                Integer.parseInt(e2_40.getText().toString()), Integer.parseInt(e2_60.getText().toString()),
+                                Integer.parseInt(e2_80.getText().toString()));
 
                         if(isInserted == true)
                         {
