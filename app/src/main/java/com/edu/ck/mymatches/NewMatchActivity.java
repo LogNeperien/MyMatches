@@ -273,24 +273,6 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
 
                         Log.d("coucou", "5");
 
-                        /*
-                        //début toast
-                        Context context = getApplicationContext();
-                        CharSequence text;
-                        if(photoFinalByte != null)
-                        {
-                            text = new String(photoFinalByte);
-                        }
-                        else
-                        {
-                            text = "c'est nul";
-                        }
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context, text, duration);
-                        toast.show();
-                        //fin toast
-                        */
-
                         boolean isInserted = db.insertDataMatch(equipeInput.getText().toString(), equipeInput2.getText().toString(),
                                 score1.getText().toString(), score2.getText().toString(), entraineurInput.getText().toString(),
                                 entraineurInput2.getText().toString(), joueur1Input.getText().toString(), joueur2Input.getText().toString(),

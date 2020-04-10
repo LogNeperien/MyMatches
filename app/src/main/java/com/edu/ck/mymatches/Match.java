@@ -59,31 +59,9 @@ public class Match extends AppCompatActivity {
             e2.setText(data.getString(1));
             score1.setText(data.getString(2));
             score2.setText(data.getString(3));
-        }
-        Cursor photo = db.getPhoto(id);
-        while(data.moveToNext())
-        {
-            photoByte = photo.getBlob(0);
+            photoByte = data.getBlob(4);
         }
 
-        //début toast
-        Context context = getApplicationContext();
-        CharSequence text;
-        if(photoByte != null)
-        {
-            text = new String(photoByte);
-        }
-        else
-        {
-            text = "c'est nul";
-        }
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
-        //fin toast
-
-        //Bitmap bitmap = BitmapFactory.decodeByteArray(photoByte, 0, photoByte.length);
-        //image.setImageBitmap(bitmap);
 
     }
 

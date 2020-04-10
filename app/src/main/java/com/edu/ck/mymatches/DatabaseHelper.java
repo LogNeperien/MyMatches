@@ -137,12 +137,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor result = db.rawQuery("SELECT " + FeedEntry.COLUMN_MATCH_EQUIPE1 + ", " +
                 FeedEntry.COLUMN_MATCH_EQUIPE2 + ", " +
                 FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1 + ", " +
-                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2 + " FROM " + TABLE_EQUIPE_NAME + " WHERE ("+
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2 + ", " +
+                FeedEntry.COLUMN_MATCH_PHOTO + " FROM " + TABLE_EQUIPE_NAME + " WHERE ("+
                 FeedEntry.COLUMN_MATCH_ID + " = " + id + ")", null);
         return result;
     }
 
     //Récupération de la photo avec id
+    //il doit y avoir un pb
     public Cursor getPhoto(int id)
     {
         SQLiteDatabase db = this.getReadableDatabase();
