@@ -62,6 +62,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String COLUMN_MATCH_LATITUDE = "latitude";
         public static final String COLUMN_MATCH_DATE = "date";
 
+        public static final String COLUMN_MATCH_SCORE_EQUIPE1_20MIN = "score20minE1";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE1_40MIN = "score40minE1";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE1_60MIN = "score60minE1";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE1_80MIN = "score80minE1";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE2_20MIN = "score20minE2";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE2_40MIN = "score40minE2";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE2_60MIN = "score60minE2";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE2_80MIN = "score80minE2";
+        
+
     }
 
     //Creation de la table (requete SQL)
@@ -83,7 +93,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     FeedEntry.COLUMN_MATCH_PHOTO + " BLOB, " +
                     FeedEntry.COLUMN_MATCH_LONGITUDE + " TEXT5, " +
                     FeedEntry.COLUMN_MATCH_LATITUDE + " TEXT6, " +
-                    FeedEntry.COLUMN_MATCH_DATE + " TEXTE)";
+                    FeedEntry.COLUMN_MATCH_DATE + " TEXTE," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_20MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_40MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_60MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_80MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_20MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_40MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_60MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_80MIN + " INTEGER)";
 
 
     //Insertion dans la table equipe
