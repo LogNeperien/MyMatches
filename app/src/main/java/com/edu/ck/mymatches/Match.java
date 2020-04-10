@@ -3,12 +3,16 @@ package com.edu.ck.mymatches;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,9 +21,12 @@ public class Match extends AppCompatActivity {
     public static final String EQUIPE1 = "EQUIPE1";
     public static final String EQUIPE2 = "EQUIPE2";
     public static final String ID = "ID";
+    public static final String PHOTO = "PHOTO";
     private TextView e1, e2, score1, score2;
+    private ImageView image;
     DatabaseHelper db;
     int id;
+    private byte[] photoByte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +37,7 @@ public class Match extends AppCompatActivity {
         e2 = (TextView) findViewById(R.id.nomEquipe2);
         score1 = findViewById(R.id.pointEquipe1);
         score2 = findViewById(R.id.pointEquipe2);
+        image = findViewById(R.id.imageView);
 
         //Récupération de l'id du match
         Intent intent = getIntent();
@@ -51,7 +59,9 @@ public class Match extends AppCompatActivity {
             e2.setText(data.getString(1));
             score1.setText(data.getString(2));
             score2.setText(data.getString(3));
+            photoByte = data.getBlob(4);
         }
+
 
     }
 
@@ -78,6 +88,7 @@ public class Match extends AppCompatActivity {
             case R.id.buttonPhoto:
                 i = new Intent(this, Photos.class);
                 i.putExtra(ID, id);
+                i.putExtra(PHOTO, photoByte);
                 startActivity(i);
                 break;
 

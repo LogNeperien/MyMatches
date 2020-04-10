@@ -1,17 +1,21 @@
 package com.edu.ck.mymatches;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+
 public class MatchC {
 
     private int id;
     private String equipe1, equipe2, score1, score2, entraineur1, entraineur2;
     private String joueur1, joueur2, joueur3, joueur4, joueur5, joueur6;
     private int lng, lat, date;
+    private byte[] photo;
 
     public MatchC() {}
 
     public MatchC(int id, String equipe1, String equipe2, String score1, String score2, String entraineur1,
                   String entraineur2, String joueur1, String joueur2, String joueur3, String joueur4,
-                  String joueur5, String joueur6, int lng, int lat, int date) {
+                  String joueur5, String joueur6, int lng, int lat, int date, byte[] photo) {
         this.id = id;
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;
@@ -28,12 +32,18 @@ public class MatchC {
         this.lng = lng;
         this.lat = lat;
         this.date = date;
+        this.photo = photo;
     }
 
     //Tous les getters
     public int getId() { return id; }
     public String getEquipe1() {return equipe1; }
     public String getEquipe2() {return equipe2; }
+    public Bitmap getPhoto()
+    {
+        Bitmap bitmap = BitmapFactory.decodeByteArray(photo,0, photo.length);
+        return bitmap;
+    }
     public String getScore1() {return score1; }
     public String getScore2() {return score2; }
     public String getEntraineur1() {return entraineur1; }
