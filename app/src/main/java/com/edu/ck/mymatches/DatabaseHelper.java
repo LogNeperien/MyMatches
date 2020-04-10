@@ -171,6 +171,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result;
     }
 
+    //Récupération du scores avec id
+    public Cursor getScoresStat(int id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor result = db.rawQuery("SELECT " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_20MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_40MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_60MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_80MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_20MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_40MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_60MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_80MIN +
+                " FROM " + TABLE_EQUIPE_NAME + " WHERE ("+
+                FeedEntry.COLUMN_MATCH_ID + " = " + id + ")", null);
+        return result;
+    }
+
     //Récupération de la photo avec id
     //il doit y avoir un pb
     public Cursor getPhoto(int id)
