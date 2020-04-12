@@ -62,6 +62,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         public static final String COLUMN_MATCH_LATITUDE = "latitude";
         public static final String COLUMN_MATCH_DATE = "date";
 
+        public static final String COLUMN_MATCH_SCORE_EQUIPE1_20MIN = "score20minE1";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE1_40MIN = "score40minE1";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE1_60MIN = "score60minE1";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE1_80MIN = "score80minE1";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE2_20MIN = "score20minE2";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE2_40MIN = "score40minE2";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE2_60MIN = "score60minE2";
+        public static final String COLUMN_MATCH_SCORE_EQUIPE2_80MIN = "score80minE2";
+
+
     }
 
     //Creation de la table (requete SQL)
@@ -83,14 +93,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     FeedEntry.COLUMN_MATCH_PHOTO + " BLOB, " +
                     FeedEntry.COLUMN_MATCH_LONGITUDE + " TEXT5, " +
                     FeedEntry.COLUMN_MATCH_LATITUDE + " TEXT6, " +
-                    FeedEntry.COLUMN_MATCH_DATE + " TEXTE)";
+                    FeedEntry.COLUMN_MATCH_DATE + " TEXTE," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_20MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_40MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_60MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_80MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_20MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_40MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_60MIN + " INTEGER," +
+                    FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_80MIN + " INTEGER)";
 
 
     //Insertion dans la table equipe
     public boolean insertDataMatch(String equipe1, String equipe2, String score1, String score2,
                                     String entraineur1, String entraineur2, String joueur1, String joueur2,
                                     String joueur3,String joueur4, String joueur5, String joueur6, byte[] photo,
-                                    String longitude, String latitude, String date)
+                                    String longitude, String latitude, String date,
+                                    int e1_20, int e1_40, int e1_60, int e1_80,
+                                    int e2_20, int e2_40, int e2_60, int e2_80)
     {
 
 
@@ -114,6 +134,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FeedEntry.COLUMN_MATCH_LONGITUDE, longitude);
         values.put(FeedEntry.COLUMN_MATCH_LATITUDE, latitude);
         values.put(FeedEntry.COLUMN_MATCH_DATE, date);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_20MIN, e1_20);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_40MIN, e1_40);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_60MIN, e1_60);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_80MIN, e1_80);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_20MIN, e2_20);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_40MIN, e2_40);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_60MIN, e2_60);
+        values.put(FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_80MIN, e2_80);
 
         long result = db.insert(TABLE_EQUIPE_NAME, null, values);
 
@@ -139,6 +167,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1 + ", " +
                 FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2 + ", " +
                 FeedEntry.COLUMN_MATCH_PHOTO + " FROM " + TABLE_EQUIPE_NAME + " WHERE ("+
+                FeedEntry.COLUMN_MATCH_ID + " = " + id + ")", null);
+        return result;
+    }
+
+    //Récupération du scores avec id
+    public Cursor getScoresStat(int id)
+    {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor result = db.rawQuery("SELECT " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_20MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_40MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_60MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE1_80MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_20MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_40MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_60MIN + ", " +
+                FeedEntry.COLUMN_MATCH_SCORE_EQUIPE2_80MIN +
+                " FROM " + TABLE_EQUIPE_NAME + " WHERE ("+
                 FeedEntry.COLUMN_MATCH_ID + " = " + id + ")", null);
         return result;
     }

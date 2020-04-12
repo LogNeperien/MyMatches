@@ -30,5 +30,6 @@
     <string name="button_ajout_match">Ajout d\'un match</string>
     <string name="boutonImage">Photo</string>
     <string name="boutonImage2">Gallerie</string>
+    <string name="stat">score toute les 20 min</string>
 
 </resources>
