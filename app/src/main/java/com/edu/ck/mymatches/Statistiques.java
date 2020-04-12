@@ -91,6 +91,7 @@ public class Statistiques extends AppCompatActivity {
         equipe2_60.setText(Integer.toString(e2_60));
         equipe2_80.setText(Integer.toString(e2_80));*/
 
+        //source : https://github.com/jjoe64/GraphView
         GraphView graph = (GraphView) findViewById(R.id.graph);
 
         LineGraphSeries<DataPoint> serieEquipe1 = new LineGraphSeries<DataPoint>(new DataPoint[] {
