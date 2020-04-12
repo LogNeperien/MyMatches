@@ -50,22 +50,34 @@ public class MainActivity extends AppCompatActivity {
 
         PreviousMatchs = (ArrayList<MatchC>) db.getPreviousMatchs();
 
-
-
-        match1.setText(PreviousMatchs.get(0).getEquipe1() + " - " + PreviousMatchs.get(0).getEquipe2());
-        match2.setText(PreviousMatchs.get(1).getEquipe1() + " - " + PreviousMatchs.get(1).getEquipe2());
-        match3.setText(PreviousMatchs.get(2).getEquipe1() + " - " + PreviousMatchs.get(2).getEquipe2());
-        match4.setText(PreviousMatchs.get(3).getEquipe1() + " - " + PreviousMatchs.get(3).getEquipe2());
-        match5.setText(PreviousMatchs.get(4).getEquipe1() + " - " + PreviousMatchs.get(4).getEquipe2());
-
-
-        date1.setText(Integer.toString(PreviousMatchs.get(0).getDate()));
-        date2.setText(Integer.toString(PreviousMatchs.get(1).getDate()));
-        date3.setText(Integer.toString(PreviousMatchs.get(2).getDate()));
-        date4.setText(Integer.toString(PreviousMatchs.get(3).getDate()));
-        date5.setText(Integer.toString(PreviousMatchs.get(4).getDate()));
-
-
+        if(!PreviousMatchs.isEmpty())
+        {
+            if(PreviousMatchs.size() >= 1)
+            {
+                match1.setText(PreviousMatchs.get(0).getEquipe1() + " - " + PreviousMatchs.get(0).getEquipe2());
+                date1.setText(Integer.toString(PreviousMatchs.get(0).getDate()));
+            }
+            if(PreviousMatchs.size() >= 2)
+            {
+                match2.setText(PreviousMatchs.get(1).getEquipe1() + " - " + PreviousMatchs.get(0).getEquipe2());
+                date2.setText(Integer.toString(PreviousMatchs.get(1).getDate()));
+            }
+            if(PreviousMatchs.size() >= 3)
+            {
+                match3.setText(PreviousMatchs.get(2).getEquipe1() + " - " + PreviousMatchs.get(2).getEquipe2());
+                date3.setText(Integer.toString(PreviousMatchs.get(2).getDate()));
+            }
+            if(PreviousMatchs.size() >= 4)
+            {
+                match4.setText(PreviousMatchs.get(3).getEquipe1() + " - " + PreviousMatchs.get(3).getEquipe2());
+                date4.setText(Integer.toString(PreviousMatchs.get(3).getDate()));
+            }
+            if(PreviousMatchs.size() >= 5)
+            {
+                match5.setText(PreviousMatchs.get(4).getEquipe1() + " - " + PreviousMatchs.get(4).getEquipe2());
+                date5.setText(Integer.toString(PreviousMatchs.get(4).getDate()));
+            }
+        }
     }
 
     public void launchSecondActivity(View view) {
