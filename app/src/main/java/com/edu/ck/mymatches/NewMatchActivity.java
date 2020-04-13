@@ -26,6 +26,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+
 public class NewMatchActivity extends AppCompatActivity implements LocationListener{
     DatabaseHelper db;
     EditText equipeInput, equipeInput2, entraineurInput, joueur1Input, joueur2Input, joueur3Input, joueur4Input, joueur5Input, joueur6Input;
@@ -33,6 +35,9 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
     private String provider;
     LocationManager locationManager;
     double lat, lng;
+    MatchC match;
+    int i = 0;
+    private static AccesDistant accesDistant = new AccesDistant();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,17 +171,28 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
 
     public void addData(View view)
                     {
+
                         boolean isInserted = db.insertDataMatch(equipeInput.getText().toString(), equipeInput2.getText().toString(),
                                 score1.getText().toString(), score2.getText().toString(), entraineurInput.getText().toString(),
                                 entraineurInput2.getText().toString(), joueur1Input.getText().toString(), joueur2Input.getText().toString(),
                                 joueur3Input.getText().toString(), joueur4Input.getText().toString(), joueur5Input.getText().toString(),
-                                joueur6Input.getText().toString(), photoInput.getText().toString(), Double.toString(lng),
-                                Double.toString(lat), dateInput.getText().toString());
+                                joueur6Input.getText().toString(), photoInput.getText().toString(), lng,
+                                lat, dateInput.getText().toString());
                         if(isInserted == true)
                         {
                             Toast.makeText(NewMatchActivity.this, "Data Inserted !!",Toast.LENGTH_LONG).show();
                         }
                         else{ Toast.makeText(NewMatchActivity.this, "Data Not Inserted !!",Toast.LENGTH_LONG).show(); }
+
+                        match = new MatchC(i, equipeInput.getText().toString(), equipeInput2.getText().toString(),
+                                Integer.parseInt(score1.getText().toString()), Integer.parseInt(score2.getText().toString()), entraineurInput.getText().toString(),
+                                entraineurInput2.getText().toString(), joueur1Input.getText().toString(),
+                                joueur2Input.getText().toString(), joueur3Input.getText().toString(), joueur4Input.getText().toString(),
+                                joueur5Input.getText().toString(), joueur6Input.getText().toString(), photoInput.getText().toString(),
+                                lng, lat, Integer.parseInt(dateInput.getText().toString()));
+
+                        //accesDistant.envoi("ajout", match.conversionInfos());
+                        //i++;
                     }
 
                     public void affichageDB(View view)

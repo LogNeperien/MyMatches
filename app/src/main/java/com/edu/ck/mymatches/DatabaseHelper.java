@@ -89,7 +89,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean insertDataMatch(String equipe1, String equipe2, String score1, String score2,
                                     String entraineur1, String entraineur2, String joueur1, String joueur2,
                                     String joueur3,String joueur4, String joueur5, String joueur6, String photo,
-                                    String longitude, String latitude, String date)
+                                    Double longitude, Double latitude, String date)
     {
         SQLiteDatabase db = this.getWritableDatabase();
 
