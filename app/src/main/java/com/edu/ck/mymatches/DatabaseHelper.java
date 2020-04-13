@@ -111,6 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                                     String longitude, String latitude, String date,
                                     int e1_20, int e1_40, int e1_60, int e1_80,
                                     int e2_20, int e2_40, int e2_60, int e2_80)
+
     {
 
 

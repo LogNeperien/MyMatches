@@ -31,6 +31,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import java.io.ByteArrayOutputStream;
 
 public class NewMatchActivity extends AppCompatActivity implements LocationListener{
@@ -46,6 +47,9 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
     private int CAMERA_REQUEST_CODE = 100;
     private byte[] photoFinalByte;
     double lat, lng;
+    MatchC match;
+    int i = 0;
+    private static AccesDistant accesDistant = new AccesDistant();
 
 
     @Override
@@ -265,14 +269,12 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
     public void addData(View view)
                     {
 
-                        Log.d("coucou", "5");
-
                         boolean isInserted = db.insertDataMatch(equipeInput.getText().toString(), equipeInput2.getText().toString(),
                                 score1.getText().toString(), score2.getText().toString(), entraineurInput.getText().toString(),
                                 entraineurInput2.getText().toString(), joueur1Input.getText().toString(), joueur2Input.getText().toString(),
                                 joueur3Input.getText().toString(), joueur4Input.getText().toString(), joueur5Input.getText().toString(),
-                                joueur6Input.getText().toString(), photoFinalByte, Double.toString(lng),
-                                Double.toString(lat), dateInput.getText().toString(), Integer.parseInt(e1_20.getText().toString()) ,
+                                joueur6Input.getText().toString(), photoFinalByte, lng,
+                                lat, dateInput.getText().toString(), Integer.parseInt(e1_20.getText().toString()) ,
                                 Integer.parseInt(e1_40.getText().toString()), Integer.parseInt(e1_60.getText().toString()),
                                 Integer.parseInt(e1_80.getText().toString()), Integer.parseInt(e2_20.getText().toString()),
                                 Integer.parseInt(e2_40.getText().toString()), Integer.parseInt(e2_60.getText().toString()),
@@ -283,6 +285,16 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
                             Toast.makeText(NewMatchActivity.this, "Data Inserted !!",Toast.LENGTH_LONG).show();
                         }
                         else{ Toast.makeText(NewMatchActivity.this, "Data Not Inserted !!",Toast.LENGTH_LONG).show(); }
+
+                        match = new MatchC(i, equipeInput.getText().toString(), equipeInput2.getText().toString(),
+                                Integer.parseInt(score1.getText().toString()), Integer.parseInt(score2.getText().toString()), entraineurInput.getText().toString(),
+                                entraineurInput2.getText().toString(), joueur1Input.getText().toString(),
+                                joueur2Input.getText().toString(), joueur3Input.getText().toString(), joueur4Input.getText().toString(),
+                                joueur5Input.getText().toString(), joueur6Input.getText().toString(), photoInput.getText().toString(),
+                                lng, lat, Integer.parseInt(dateInput.getText().toString()));
+
+                        //accesDistant.envoi("ajout", match.conversionInfos());
+                        //i++;
                     }
 
                     public void affichageDB(View view)
