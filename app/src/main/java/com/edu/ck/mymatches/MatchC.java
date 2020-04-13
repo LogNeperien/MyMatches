@@ -11,7 +11,7 @@ public class MatchC {
     private int id;
     private String equipe1, equipe2, entraineur1, entraineur2;
     private int score1, score2;
-    private String joueur1, joueur2, joueur3, joueur4, joueur5, joueur6, photo;
+    private String joueur1, joueur2, joueur3, joueur4, joueur5, joueur6;
     private Double lng, lat;
     private int date;
     private byte[] photo;
@@ -21,8 +21,6 @@ public class MatchC {
     public MatchC(int id, String equipe1, String equipe2, int score1, int score2, String entraineur1,
                   String entraineur2, String joueur1, String joueur2, String joueur3, String joueur4,
                   String joueur5, String joueur6,Double lng, Double lat, int date, byte[] photo) {
-
- {
 
         this.id = id;
         this.equipe1 = equipe1;
@@ -41,7 +39,6 @@ public class MatchC {
         this.lng = lng;
         this.lat = lat;
         this.date = date;
-        this.photo = photo;
     }
 
     //Tous les getters

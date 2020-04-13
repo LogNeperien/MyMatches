@@ -290,8 +290,8 @@ public class NewMatchActivity extends AppCompatActivity implements LocationListe
                                 Integer.parseInt(score1.getText().toString()), Integer.parseInt(score2.getText().toString()), entraineurInput.getText().toString(),
                                 entraineurInput2.getText().toString(), joueur1Input.getText().toString(),
                                 joueur2Input.getText().toString(), joueur3Input.getText().toString(), joueur4Input.getText().toString(),
-                                joueur5Input.getText().toString(), joueur6Input.getText().toString(), photoInput.getText().toString(),
-                                lng, lat, Integer.parseInt(dateInput.getText().toString()));
+                                joueur5Input.getText().toString(), joueur6Input.getText().toString(),
+                                lng, lat, Integer.parseInt(dateInput.getText().toString()), photoFinalByte);
 
                         //accesDistant.envoi("ajout", match.conversionInfos());
                         //i++;
