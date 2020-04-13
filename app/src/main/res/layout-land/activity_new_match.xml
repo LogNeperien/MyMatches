@@ -54,6 +54,13 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/stat" />
+
+            <TextView
                 android:id="@+id/entraineur"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -93,7 +100,7 @@
                 android:id="@+id/photo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:text="Photo :"
                 android:textSize="14sp" />
@@ -131,6 +138,45 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/e1_20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e1_40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e1_60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e1_80"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/editText_entraineur"
@@ -172,6 +218,20 @@
                 android:ems="10"
                 android:inputType="textPersonName" />
 
+            <Button
+                android:id="@+id/buttonImagePhoto2"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_weight="1"
+                android:text="@string/boutonImage" />
+
+            <Button
+                android:id="@+id/buttonImageGallery2"
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:layout_weight="1"
+                android:text="@string/boutonImage2" />
+
             <EditText
                 android:id="@+id/editText_date"
                 android:layout_width="match_parent"
@@ -207,6 +267,13 @@
                 android:gravity="center"
                 android:text="Score :"
                 android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/stat" />
 
             <TextView
                 android:id="@+id/entraineur2"
@@ -270,6 +337,45 @@
                 android:ems="10"
                 android:inputType="number" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/e2_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e2_40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e2_60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e2_80"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/editText_entraineur2"
                 android:layout_width="match_parent"
@@ -305,7 +411,7 @@
             <Button
                 android:id="@+id/button_ajout"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="15dp"
                 android:layout_weight="1"
                 android:onClick="addData"
                 android:text="Ajouter" />
@@ -313,7 +419,7 @@
             <Button
                 android:id="@+id/button_affichage"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="15dp"
                 android:layout_weight="1"
                 android:onClick="affichageDB"
                 android:text="Afficher DB" />
