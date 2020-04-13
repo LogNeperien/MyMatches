@@ -54,6 +54,13 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/stat" />
+
+            <TextView
                 android:id="@+id/entraineur"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -93,7 +100,7 @@
                 android:id="@+id/photo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_weight="2"
                 android:gravity="center"
                 android:text="Photo :"
                 android:textSize="14sp" />
@@ -132,6 +139,45 @@
                 android:ems="10"
                 android:inputType="number" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/e1_20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e1_40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e1_60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e1_80"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/editText_entraineur"
                 android:layout_width="match_parent"
@@ -164,13 +210,19 @@
                 android:ems="10"
                 android:inputType="textPersonName" />
 
-            <EditText
-                android:id="@+id/editText_photo"
+            <Button
+                android:id="@+id/buttonImagePhoto"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName" />
+                android:text="@string/boutonImage" />
+
+            <Button
+                android:id="@+id/buttonImageGallery"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/boutonImage2" />
 
             <EditText
                 android:id="@+id/editText_date"
@@ -209,6 +261,13 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="@string/stat" />
+
+            <TextView
                 android:id="@+id/entraineur2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -243,7 +302,7 @@
                 android:gravity="center"
                 android:text="Joueur 3 :"
                 android:textSize="14sp" />
-            
+
         </LinearLayout>
 
         <LinearLayout
@@ -269,6 +328,45 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="number" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/e2_20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e2_40"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e2_60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <EditText
+                    android:id="@+id/e2_80"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/editText_entraineur2"

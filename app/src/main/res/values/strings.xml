@@ -28,5 +28,8 @@
     <string name="title_activity_database_helper">DatabaseHelper</string>
     <string name="title_activity_new_match">Nouveau Match</string>
     <string name="button_ajout_match">Ajout d\'un match</string>
+    <string name="boutonImage">Photo</string>
+    <string name="boutonImage2">Gallerie</string>
+    <string name="stat">score toute les 20 min</string>
 
 </resources>

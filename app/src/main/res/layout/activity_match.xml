@@ -92,6 +92,12 @@
                 android:layout_height="wrap_content"
                 android:onClick="ChangeActivity"
                 android:text="@string/buttonStatistique" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@color/common_google_signin_btn_text_dark_default" />
         </LinearLayout>
 
     </LinearLayout>

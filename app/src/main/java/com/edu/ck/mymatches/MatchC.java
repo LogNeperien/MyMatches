@@ -1,9 +1,10 @@
 package com.edu.ck.mymatches;
 
 import org.json.JSONArray;
-
 import java.util.ArrayList;
 import java.util.List;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 public class MatchC {
 
@@ -13,12 +14,16 @@ public class MatchC {
     private String joueur1, joueur2, joueur3, joueur4, joueur5, joueur6, photo;
     private Double lng, lat;
     private int date;
+    private byte[] photo;
 
     public MatchC() {}
 
     public MatchC(int id, String equipe1, String equipe2, int score1, int score2, String entraineur1,
                   String entraineur2, String joueur1, String joueur2, String joueur3, String joueur4,
-                  String joueur5, String joueur6, String photo, Double lng, Double lat, int date) {
+                  String joueur5, String joueur6,Double lng, Double lat, int date, byte[] photo) {
+
+ {
+
         this.id = id;
         this.equipe1 = equipe1;
         this.equipe2 = equipe2;
@@ -36,6 +41,7 @@ public class MatchC {
         this.lng = lng;
         this.lat = lat;
         this.date = date;
+        this.photo = photo;
     }
 
     //Tous les getters
@@ -44,6 +50,13 @@ public class MatchC {
     public String getEquipe2() {return equipe2; }
     public int getScore1() {return score1; }
     public int getScore2() {return score2; }
+
+    public Bitmap getPhoto()
+    {
+        Bitmap bitmap = BitmapFactory.decodeByteArray(photo,0, photo.length);
+        return bitmap;
+    }
+
     public String getEntraineur1() {return entraineur1; }
     public String getEntraineur2() {return entraineur2; }
     public String getJoueur1() {return joueur1; }
@@ -52,7 +65,6 @@ public class MatchC {
     public String getJoueur4() {return joueur4; }
     public String getJoueur5() {return joueur5; }
     public String getJoueur6() {return joueur6; }
-    public String getPhoto() {return photo;}
     public Double getLng() {return lng; }
     public Double getLat() {return lat; }
     public int getDate() {return date;}
@@ -71,7 +83,6 @@ public class MatchC {
     public String setJoueur4(String joueur4) {this.joueur4 = joueur4; return joueur4;}
     public String setJoueur5(String joueur5) {this.joueur5 = joueur5; return joueur5; }
     public String setJoueur6(String joueur6) {this.joueur6 = joueur6; return joueur6; }
-    public String setPhoto(String photo){ this.photo = photo; return photo;}
     public Double setLng(Double lng) {this.lng = lng; return lng; }
     public Double setLat(Double lat) {this.lat = lat; return lat;}
     public int setDate(int date) {this.date = date; return date;}
